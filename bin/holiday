@@ -1,0 +1,44 @@
+require_relative '../lib/holiday.rb'
+
+holiday_hash = {
+  :winter => {
+    :christmas => ["Lights", "Wreath"],
+    :new_years => ["Party Hats"]
+  },
+  :summer => {
+    :fourth_of_july => ["Fireworks", "BBQ"]
+  },
+  :fall => {
+    :thanksgiving => ["Turkey"]
+  },
+  :spring => {
+    :memorial_day => ["BBQ"]
+  }
+}
+
+supply = "Booze!"
+
+season = :fall
+holiday_name = :columbus_day
+supply_array = ["Flags", "Parade Floats", "Italian Food"]
+
+print 'second_supply_for_fourth_of_july(holiday_hash) returns: '
+puts second_supply_for_fourth_of_july(holiday_hash)
+
+print 'add_supply_to_winter_holidays(holiday_hash, supply) returns: '
+puts add_supply_to_winter_holidays(holiday_hash, supply)
+
+puts 'add_supply_to_memorial_day(holiday_hash, supply) returns: '
+puts add_supply_to_memorial_day(holiday_hash, supply)
+
+puts 'add_new_holiday_with_supplies(holiday_hash, season, holiday_name, supply_array) returns: '
+puts add_new_holiday_with_supplies(holiday_hash, season, holiday_name, supply_array)
+
+puts 'all_winter_holiday_supplies(holiday_hash) returns: '
+puts all_winter_holiday_supplies(holiday_hash)
+
+puts 'all_supplies_in_holidays(holiday_hash) returns: '
+puts all_supplies_in_holidays(holiday_hash)
+
+puts 'all_holidays_with_bbq(holiday_hash) returns: '
+puts all_holidays_with_bbq(holiday_hash)
