@@ -1,5 +1,23 @@
 require 'pry'
 
+holiday_hash={
+  :winter=>{
+    :christmas=>["Lights", "Wreath", "Balloons"], 
+    :new_years=>["Party Hats", "Balloons"], 
+    :valentines_day=>["Cupid Cut-Out", "Candy Hearts"]
+  },  
+  :summer=>{
+    :fourth_of_july=>["Fireworks", "BBQ"]
+    }, 
+  :fall=>{
+    :thanksgiving=>["Turkey"], 
+    :columbus_day=>["Flags", "Parade Floats", "Italian Food"]
+  }, 
+  :spring=>{
+    :memorial_day=>["BBQ"]
+  }
+}
+
 def second_supply_for_fourth_of_july(holiday_supplies)
   holiday_supplies[:summer][:fourth_of_july][1]
   # given that holiday_hash looks like this:
@@ -20,6 +38,7 @@ def second_supply_for_fourth_of_july(holiday_supplies)
   # }
   # return the second element in the 4th of July array
 end
+
 
 def add_supply_to_winter_holidays(holiday_hash, supply)
    holiday_hash[:winter].each do |key, value|
@@ -54,23 +73,19 @@ def all_supplies_in_holidays(holiday_hash)
   holiday_hash.each do |season, holiday|
     puts "#{season.to_s.capitalize!}:"
     holiday.each do |holiday_name, supplies|
-      y = holiday_name.to_s.split("_")
+      y = holiday_name.to_s.split(" ")
       y.each {|word| word.capitalize!}
       puts "  #{y.join(" ")}: #{supplies.join(", ")}"
   end
 end
 end
 
+all_supplies_in_holidays(holiday_hash)
+
 def all_holidays_with_bbq(holiday_hash)
-  collection = []
-  holiday_hash.each do |season, holiday|
-    holiday.each do |holiday_name, supplies|
-      if supplies.include?("BBQ") 
-        collection << holiday_name
-      end
-    end  
-  end
-    collection
+  # return an array of holiday names (as symbols) where supply lists
+  # include the string "BBQ"
+
 end
 
 
