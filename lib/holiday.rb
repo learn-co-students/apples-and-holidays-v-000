@@ -26,7 +26,9 @@ def add_supply_to_winter_holidays(holiday_hash, supply)
   # add the second argument, which is a supply, to BOTH the 
   # Christmas AND the New Year's arrays
   holiday_hash[:winter][:new_years] << supply
+  # binding.pry
   holiday_hash[:winter][:christmas] << supply
+  holiday_hash
 end
  
 
@@ -39,13 +41,15 @@ end
 def add_new_holiday_with_supplies(holiday_hash, season, holiday_name, supply_array)
   # code here
   # remember to return the updated hash
-  holiday_hash[season.to_sym][holiday_name.to_sym] << supply_array
+  # binding.pry
+  # holiday_hash[season][holiday_name] =[]
+  holiday_hash[season][holiday_name] = supply_array
   holiday_hash
 end
 
 def all_winter_holiday_supplies(holiday_hash)
   # return an array of all of the supplies that are used in the winter season
-  holiday_hash[:winter].keys.values.flatten
+  holiday_hash[:winter].values.flatten
 end
 
 def all_supplies_in_holidays(holiday_hash)
@@ -57,9 +61,21 @@ def all_supplies_in_holidays(holiday_hash)
   #   Fourth Of July: Fireworks, BBQ
   # etc.
   holiday_hash.each do |season, holiday|
-    puts season.to_s.capitalize
-    season.each do |holiday,supply|
-      puts holiday.to_s.capitalize + ": " + supply
+    puts (season.to_s.capitalize + ":")
+    # binding.pry
+    holiday.each do |holiday,supply|
+      string = ""
+      string << "  " << holiday.to_s.gsub('_',' ').split.map(&:capitalize).join(' ') << ": "
+      i = 0
+      while i < supply.length
+        if(i == (supply.length - 1) )
+          string << supply[i]
+        else
+          string << supply[i] << ", "
+        end
+        i+=1
+      end
+      puts string
     end
   end
 end
@@ -67,8 +83,9 @@ end
 def all_holidays_with_bbq(holiday_hash)
   # return an array of holiday names (as symbols) where supply lists
   # include the string "BBQ"
+  bbq=[]
   holiday_hash.each do |season,holiday|
-    season.each do |holiday,supplies|
+    holiday.each do |holiday,supplies|
       supplies.each do |supply|
         if supply == "BBQ"
           bbq << holiday
@@ -76,11 +93,27 @@ def all_holidays_with_bbq(holiday_hash)
       end
     end
   end
+  return bbq
 end
 
+hashing = {
+    :winter => {
+      :christmas => ["Lights", "Wreath"],
+      :new_years => ["Party Hats"]
+    },
+    :summer => {
+      :fourth_of_july => ["Fireworks", "BBQ"]
+    },
+    :fall => {
+      :thanksgiving => ["Turkey"]
+    },
+    :spring => {
+      :memorial_day => ["BBQ"]
+    }
+  }
 
+  supply = "donuts"
 
-
-
+all_supplies_in_holidays(hashing)
 
 
