@@ -78,7 +78,9 @@ def all_supplies_in_holidays(holiday_hash)
     puts "#{season.to_s.capitalize!}:"
       holidays.each do |holiday, supplies|
         text = holiday.to_s
+        
         #splits the text where there is '_' into separate arrays and then uses .map to change the original array with capitalized text. finally, uses .join to convert array into a string with a space in between the words
+        
         final = text.split("_").map(&:capitalize).join(' ')
         puts "  #{final}: #{supplies.join(', ')}"
       end
@@ -90,13 +92,27 @@ end
 def all_holidays_with_bbq(holiday_hash)
   # return an array of holiday names (as symbols) where supply lists
   # include the string "BBQ"
-  bbq_holidays = []
-  holiday_hash.each do |season, holidays|
-    holidays.each do |holiday, supplies|
-      bbq_holidays.push(holiday) if supplies.include? "BBQ"
+  
+  #ORIGINAL APPROACH
+  #created an empty array bqq_holidays to push holidays that included "BBQ" into. Tried to do it with .map at first, but realized that it kept returning the values including 'nil'
+
+      #bbq_holidays = []
+      #holiday_hash.each do |season, holidays|
+        #holidays.each do |holiday, supplies|
+          #bbq_holidays.push(holiday) if supplies.include? "BBQ"
+        #end
+      #end
+      #bbq_holidays
+
+  #REFACTORED APPROACH
+  #saw the solution suggested on github after submitting my solution and discovered that .compact removes the nil values from an array
+  
+  holiday_hash.map do |season, holidays|
+    holidays.map do |holiday, supplies|
+      holiday if supplies.include?("BBQ")
     end
-  end
-bbq_holidays
+  #apparently can chain methods to the end of iterations as follows:
+  end.flatten.compact
 end
 
 
