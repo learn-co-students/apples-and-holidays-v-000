@@ -71,27 +71,7 @@ def all_winter_holiday_supplies(holiday_hash)
   end
 
 def all_supplies_in_holidays(holiday_hash)
-  # iterate through holiday_hash and print items such that your readout resembles:
-  # Winter:
-  #   Christmas: Lights, Wreath
-  #   New Years: Party Hats
-  # Summer:
-  #   Fourth Of July: Fireworks, BBQ
-  # etc.
-
-  # holiday_hash.each do |season, holidays|
-  #       puts "#{season.capitalize}:"
-  #      holidays.each do |holiday, supplies|
-  #       puts "  #{holiday.to_s.split("_").map {|word| word.capitalize}.join(" ")}: #{supplies.join(", ")}"
-  #      end
-  #  end 
-  #  end
-
-  # def no_space (char)
-  #   char.gsub!(/_/, " ")
-  # end
-  
-  holiday_hash.each do |holiday, supply|
+    holiday_hash.each do |holiday, supply|
     puts "#{holiday.to_s.capitalize!}:"
     supply.each do |key, value|
       word = key.to_s.split("_")
