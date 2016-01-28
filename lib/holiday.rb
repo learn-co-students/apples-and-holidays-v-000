@@ -70,17 +70,17 @@ def all_supplies_in_holidays(holiday_hash)
   #   Fourth Of July: Fireworks, BBQ
   # etc.
   holiday_hash.each do |season, season_hash|
-    puts season.to_s.capitalize + ":"
+    puts season.to_s.capitalize + ":" # "[Season]: "
     season_hash.each do |holiday, supplies|
-      if holiday.to_s.include?("_")
-        holiday = holiday.to_s.split("_") #here
-        holiday.collect do |word|
-          word.capitalize!
+      if holiday.to_s.include?("_") # If the holiday name includes an underscore...
+        holiday = holiday.to_s.split("_") # split it by the underscore...
+        holiday.collect do |word| # replace the holiday array with the following iteration...
+          word.capitalize! # capitalize each word
         end
-        holiday = holiday.join(" ")
-        puts "  " + holiday + ": " + supplies.join(", ")
-      else
-        puts "  " + holiday.to_s.capitalize + ": " + supplies.join(", ")
+        holiday = holiday.join(" ") # turn the holiday array into a string..
+        puts "  " + holiday + ": " + supplies.join(", ") # "  [Holiday]: Supply 1, Supply 2 [...]"
+      else #Otherwise
+        puts "  " + holiday.to_s.capitalize + ": " + supplies.join(", ") # "  [Holiday]: Supply 1, Supply 2 [...]"
       end
     end
   end
