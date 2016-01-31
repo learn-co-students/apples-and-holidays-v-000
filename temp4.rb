@@ -24,37 +24,39 @@ def all_winter_holiday_supplies(holiday_hash)
 end
 
 def all_supplies_in_holidays(holiday_hash)
+  h_ary1 = []
+  h_ary2 = []
   h_str = ""
   h_pr = ""
   s = ""
   i = []
-  holiday = {}
-  holiday_hash.each do |season,hol_array| 
+  holiday_hash.each do |season,holiday| 
     s = season.to_s
     s.capitalize!
-    holiday = hol_array
-    puts "#{s}:"
     holiday.each do |attribute, value|
-      h_str = attribute.to_s  #----turn attribute to string
-        h_ary = h_str.split("_")     #----.split the string to array
-          h_ary.each do |z| z.capitalize! end  #----iterate over ary & capitalize
-            h_pr = h_ary.join(" ") #----.join the ary back into a string
-              i = value.join(", ")
+        h_str = attribute.to_s  #----turn attribute to string
+          h_ary = h_str.split("_")     #----.split the string to array
+            h_ary.each do |item| h_ary2 << item.capitalize  #----iterate over ary & capitalize
+              h_pr = h_ary.join(" ")  #----.join the ary back into a string
+                i = value.join(", ")
+    
+            end
+        puts "#{s}:"
         puts "  #{h_pr}: "+"#{i}"
-     end
+    end
   end
 end
+ 
 
-def all_holidays_with_bbq(holiday_hash)
-  bbq_array = []
-  hkstring = ""
-  temp = {}
-  holiday_hash.each do |season, holidays|
-    holidays.each do |name, values|
-      if holidays[name].include?("BBQ"); 
-        bbq_array << name
-          end
-        end
-      end
-    bbq_array 
-  end
+
+# You'll need to capitalize both words in a given holiday's name. 
+# If you call "new years".capitalize!. It will return "New years". 
+# In order to capitalize both words, you'll need to .split the string 
+# into an array and iterate over that array to .capitalize! each word in it. 
+# Then, you'll need to .join the array back into a string.
+
+
+
+
+
+
