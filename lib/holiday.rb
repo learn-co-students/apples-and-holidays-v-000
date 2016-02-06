@@ -77,33 +77,20 @@ def all_supplies_in_holidays(holiday_hash)
             puts season_string
     
     holidays.each do |holiday, supply_array|
-        holiday_string = holiday.to_s
-        arr=holiday_string.split('_')
+      holiday_string = holiday.to_s
+      arr=holiday_string.split('_')
         
-        cap_array=arr.collect do |holiday_word|
-          holiday_word = holiday_word.capitalize
-        end
+      cap_array=arr.collect do |holiday_word|
+         holiday_word = holiday_word.capitalize
+      end
     
-        holiday_string = cap_array.join(" ")
-       
-        # print "   #{holiday_string}: "
-        
-        # supply_array.each do |supply|
-        #       if supply!= supply_array.last
-        #        print "#{supply}, "
-        #      else
-        #       puts "#{supply}"
-        #     end
-        # end
-      
-       sup= supply_array.join(", ")
-       holiday_string <<": "
-       puts "  #{holiday_string << sup}"
-
-
-
+      holiday_string = cap_array.join(" ")
+    
+     sup= supply_array.join(", ")
+           holiday_string <<": "
+           puts "  #{holiday_string << sup}"
+          end
     end
-  end
 
 end
            
