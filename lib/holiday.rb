@@ -54,11 +54,21 @@ def all_winter_holiday_supplies(holiday_hash)
   holiday_hash[:winter].values.flatten 
 end
 
+# def all_supplies_in_holidays(holiday_hash)
+#   holiday_hash.each do |season, values|
+#       puts "#{season.capitalize}:"
+#       values.each do |holiday, holiday_items|
+#         puts "  #{holiday.to_s.split('_').map {|holiday2| holiday2.capitalize }.join(' ') }: #{holiday_items.join(', ')}" 
+#   end 
+# end 
+# end
+
 def all_supplies_in_holidays(holiday_hash)
   holiday_hash.each do |season, values|
       puts "#{season.capitalize}:"
       values.each do |holiday, holiday_items|
-        puts "   #{holiday.to_s.split('_').map {|holiday2| holiday2.capitalize }.join(' ') }: #{holiday_items.join(', ')}"
+        puts "  " + holiday.to_s.split('_').map {|holiday2| holiday2.capitalize }.join(' ') + ": " + holiday_items.join(", ")  
+
   end 
 end 
 end 
@@ -75,4 +85,3 @@ def all_holidays_with_bbq(holiday_hash)
   result  
 end
 
-all_supplies_in_holidays(holiday_hash)
