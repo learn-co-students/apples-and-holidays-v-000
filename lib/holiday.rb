@@ -100,9 +100,9 @@ def all_holidays_with_bbq(holiday_hash)
       if items.detect {|item| item == "BBQ"}
         array << holiday
       end
-      array
     end
   end
+  array
 end
 
 
