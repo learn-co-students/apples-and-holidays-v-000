@@ -89,6 +89,7 @@ end
   #   Fourth Of July: Fireworks, BBQ
   # etc.
 
+#### method got messed up ###
 def all_supplies_in_holidays(holiday_hash)
     holiday_hash.collect do |season, holiday|
       season = season.to_s.capitalize
@@ -112,7 +113,7 @@ def all_supplies_in_holidays(holiday_hash)
       end
     end
 end
-   
+
 
 
 #    holiday_hash.chomp.split(" ").each{|word| word.capitalize!}.join(" ")
