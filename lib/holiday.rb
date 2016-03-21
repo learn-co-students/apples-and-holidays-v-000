@@ -65,7 +65,26 @@ def all_supplies_in_holidays(holiday_hash)
   # Summer:
   #   Fourth Of July: Fireworks, BBQ
   # etc.
+holiday_hash.each do |season,data|
+  if season == :winter
+    puts "#{season}:".capitalize
+  data.each do |holiday,supplies|
+   puts "#{holiday}: ".to_s.split("_").capitalize!.join(" ")
+   puts " #{supplies.join(", ")}"
+  
+end
+end
 
+if season == :spring
+   puts "#{season}:".capitalize
+   data.each do |holiday,supplies|
+   puts "#{holiday}: ".to_s.split("_").join(" ").capitalize!
+   puts " #{supplies.join(", ")}"
+  
+end
+end
+end
+end
 
 
   
@@ -76,7 +95,7 @@ hash.each do |season,data|
   if season == :winter
     puts "#{season}:".capitalize
   data.each do |holiday,supplies|
-   puts "#{holiday}: ".to_s.split("_").join(" ").capitalize!
+   puts "#{holiday}: ".to_s.split("_").capitalize!.join(" ")
    puts " #{supplies.join(", ")}"
   
 end
@@ -98,23 +117,7 @@ end
 #puts "#{holiday}: #{supplies.join(", ")}".to_s.capitalize.split
 # puts "#{holiday}".split("_").to_s
 # puts "#{supplies.join(", ")}".capitalize
-#puts "#{holiday}: #{supplies.join(", ")}".capitalize!.to_s.split("_").join(" ")
-
-def method(hash)
-winter_array = []
-winter_holidays = []
-hash.each do |season,data|
-  if season == :winter
-    puts "#{season}:".capitalize
-  data.map do |holiday,supplies|
-  winter_array << holiday.capitalize
-  puts winter_array
-
-
-end
-end
-end
-end    
+#puts "#{holiday}: #{supplies.join(", ")}".capitalize!.to_s.split("_").join(" ")  
 
 def all_holidays_with_bbq(holiday_hash)
   # return an array of holiday names (as symbols) where supply lists
@@ -124,36 +127,5 @@ end
 
 
 
-hash = {
-  :winter => {
-    :christmas => ["Lights", "Wreath"],
-    :new_years => ["Party Hats"]
-  },
-  :summer => {
-    :fourth_of_july => ["Fireworks", "BBQ"]
-  },
-  :fall => {
-    :thanksgiving => ["Turkey"]
-  },
-  :spring => {
-    :memorial_day => ["BBQ"]
-  }
-}
 
-
-hash = {
-  :winter => {
-    :christmas => ["Lights", "Wreath"],
-    :new_years => ["Party Hats"]
-  },
-  :summer => {
-    :fourth_of_july => ["Fireworks", "BBQ"]
-  },
-  :fall => {
-    :thanksgiving => ["Turkey"]
-  },
-  :spring => {
-    :memorial_day => ["BBQ"]
-  }
-}
 
