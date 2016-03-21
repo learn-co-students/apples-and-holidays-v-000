@@ -58,49 +58,49 @@ end.flatten
 end
 
 def all_supplies_in_holidays(holiday_hash)
-  # iterate through holiday_hash and print items such that your readout resembles:
-  # Winter:
-  #   Christmas: Lights, Wreath
-  #   New Years: Party Hats
-  # Summer:
-  #   Fourth Of July: Fireworks, BBQ
-  # etc.
+
 holiday_hash.each do |season,data|
   if season == :winter
-    puts "#{season}:".capitalize
+    puts "#{season.capitalize}:"
   data.each do |holiday,supplies|
-   puts "#{holiday}: ".to_s.split("_").capitalize!.join(" ")
-   puts " #{supplies.join(", ")}"
-  
+   puts "  #{holiday.to_s.split("_").map(&:capitalize).join(" ")}: #{supplies.join(", ")}"
+end
+end
+  if season == :spring
+    puts "#{season.capitalize}:"
+  data.each do |holiday,supplies|
+   puts "  #{holiday.to_s.split("_").map(&:capitalize).join(" ")}: #{supplies.join(", ")}"
+end
+end
+  if season == :summer
+    puts "#{season.capitalize}:"
+  data.each do |holiday,supplies|
+   puts "  #{holiday.to_s.split("_").map(&:capitalize).join(" ")}: #{supplies.join(", ")}"   
 end
 end
 
-if season == :spring
-   puts "#{season}:".capitalize
-   data.each do |holiday,supplies|
-   puts "#{holiday}: ".to_s.split("_").join(" ").capitalize!
-   puts " #{supplies.join(", ")}"
-  
+  if season == :fall
+    puts "#{season.capitalize}:"
+  data.each do |holiday,supplies|
+   puts "  #{holiday.to_s.split("_").map(&:capitalize).join(" ")}: #{supplies.join(", ")}"
 end
 end
 end
 end
 
 
-
-# puts "#{holiday}: #{supplies.join(", ")}".capitalize!.to_s.split("_").join(" ")
-#puts "#{holiday}: #{supplies.join(", ")}".to_s.capitalize.split
-# puts "#{holiday}".split("_").to_s
-# puts "#{supplies.join(", ")}".capitalize
-#puts "#{holiday}: #{supplies.join(", ")}".capitalize!.to_s.split("_").join(" ")  
 
 def all_holidays_with_bbq(holiday_hash)
-  # return an array of holiday names (as symbols) where supply lists
-  # include the string "BBQ"
-
-end
-
-
-
-
+bbq_array = []
+  holiday_hash.each do |season, holiday_data|
+  holiday_data.each do |holiday, supplies|
+  supplies.each do |x|
+  if x == "BBQ"
+    bbq_array << holiday
+   end
+   end
+   end
+   end
+   bbq_array
+   end 
 
