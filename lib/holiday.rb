@@ -87,19 +87,7 @@ end
 end
 
 
-  
-end
 
-def method(hash)
-hash.each do |season,data|
-  if season == :winter
-    puts "#{season}:".capitalize
-  data.each do |holiday,supplies|
-   puts "#{holiday}: ".to_s.split("_").capitalize!.join(" ")
-   puts " #{supplies.join(", ")}"
-  
-end
-end
 
 if season == :spring
    puts "#{season}:".capitalize
