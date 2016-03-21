@@ -88,19 +88,6 @@ end
 
 
 
-
-if season == :spring
-   puts "#{season}:".capitalize
-   data.each do |holiday,supplies|
-   puts "#{holiday}: ".to_s.split("_").join(" ").capitalize!
-   puts " #{supplies.join(", ")}"
-  
-end
-end
-end
-end
-
-
 # puts "#{holiday}: #{supplies.join(", ")}".capitalize!.to_s.split("_").join(" ")
 #puts "#{holiday}: #{supplies.join(", ")}".to_s.capitalize.split
 # puts "#{holiday}".split("_").to_s
