@@ -16,4 +16,4 @@ holiday_supplies = {
   }
 }
 
-puts second_supply_for_fourth_of_july(holiday_supplies)
+puts add_new_holiday_with_supplies(holiday_supplies, :winter, :columbus_day, "towels")
