@@ -21,25 +21,17 @@ def add_new_holiday_with_supplies(holiday_hash, season, holiday_name, supply_arr
 end
 
 def all_winter_holiday_supplies(holiday_hash)
-  christmas_supplies = holiday_hash[:winter][:christmas]
-	new_years_supplies = holiday_hash[:winter][:new_years]
-	all_winter_supplies = christmas_supplies + new_years_supplies
-	all_winter_supplies
+  holiday_hash[:winter].map do |holiday, supplies|
+    supplies
+  end.flatten
 end
 
 def all_supplies_in_holidays(holiday_hash)
 	holiday_hash.each do |season, data|
-    if season == :winter
     	puts "#{season.capitalize}:"
     	data.each do |holiday, supplies|
     		puts "  #{holiday.to_s.split("_").each{|x| x.capitalize!}.join(" ")}: #{supplies.join(", ")}"
     	end
-    elsif season != :winter
-		  data.each do |holiday, supplies|
-			  puts "#{season.capitalize}:"
-			  puts "  #{holiday.to_s.split("_").each{|x| x.capitalize!}.join(" ")}: #{supplies.join(", ")}"
-		  end
-	  end
   end
 end
 
