@@ -101,17 +101,17 @@ describe "holiday_supplies_hash" do
 
     # For more info about heredocs, see this link: http://en.wikibooks.org/wiki/Ruby_Programming/Here_documents
 
-      @output = <<-TEXT
-Winter:
-  Christmas: Lights, Wreath
-  New Years: Party Hats
-Summer:
-  Fourth Of July: Fireworks, BBQ
-Fall:
-  Thanksgiving: Turkey
-Spring:
-  Memorial Day: BBQ
-TEXT
+      @output =
+"Winter:\n
+  Christmas: Lights, Wreath\n
+  New Years: Party Hats\n
+Summer:\n
+  Fourth Of July: Fireworks, BBQ\n
+Fall:\n
+  Thanksgiving: Turkey\n
+Spring:\n
+  Memorial Day: BBQ"
+
     end
 
     # For the purposes of this test, we are assuming that you decided to output your list
