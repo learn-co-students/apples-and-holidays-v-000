@@ -102,15 +102,16 @@ describe "holiday_supplies_hash" do
     # For more info about heredocs, see this link: http://en.wikibooks.org/wiki/Ruby_Programming/Here_documents
 
       @output =
-"Winter:\n
-  Christmas: Lights, Wreath\n
-  New Years: Party Hats\n
-Summer:\n
-  Fourth Of July: Fireworks, BBQ\n
-Fall:\n
-  Thanksgiving: Turkey\n
-Spring:\n
-  Memorial Day: BBQ"
+%{Winter:
+  Christmas: Lights, Wreath
+  New Years: Party Hats
+Summer:
+  Fourth Of July: Fireworks, BBQ
+Fall:
+  Thanksgiving: Turkey
+Spring:
+  Memorial Day: BBQ
+}
 
     end
 
@@ -118,18 +119,18 @@ Spring:\n
     # of holiday supplies line by line. If, on the other hand, you decided to output it
     # as one big chunk, comment out this test, and uncomment the one below it.
 
-    it "should output the formatted list of holidays and their supplies" do
-      @output.each_line do |line|
-        expect($stdout).to receive(:puts).with(line.chomp)
-      end
-
-      all_supplies_in_holidays(holiday_supplies)
-    end
-
     # it "should output the formatted list of holidays and their supplies" do
-    #   expect($stdout).to receive(:puts).with(@output)
+    #   @output.each_line do |line|
+    #     expect($stdout).to receive(:puts).with(line.chomp)
+    #   end
+
     #   all_supplies_in_holidays(holiday_supplies)
     # end
+
+    it "should output the formatted list of holidays and their supplies" do
+      expect($stdout).to receive(:puts).with(@output)
+      all_supplies_in_holidays(holiday_supplies)
+    end
 
   end
 

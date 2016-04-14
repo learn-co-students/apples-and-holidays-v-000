@@ -58,23 +58,22 @@ def all_supplies_in_holidays(hol_sup)
   # Summer:
   #   Fourth Of July: Fireworks, BBQ
   # etc.
-  
-
+output = ""  
 
 hol_sup.each do |season, holidays|     
-   print season.id2name.capitalize + ": \n"
+   output << season.id2name.capitalize + ":\n"
    holidays.each do |holiday, supplies|
-      print "  " + holiday.id2name.split("_").map(&:capitalize)*" " + ": "
+      output << "  " + holiday.id2name.split("_").map(&:capitalize)*" " + ": "
       supplies.each do |x|
           unless x.equal? supplies.last
-             print x + ", "
+             output << x + ", "
           else
-             print x + "\n"
+             output << x + "\n"
           end
       end
     end
   end
-
+puts output
 end
 
 
