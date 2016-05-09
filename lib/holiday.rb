@@ -92,7 +92,7 @@ def all_supplies_in_holidays(holiday_hash)
   #     :memorial_day => ["BBQ"]
   #   }
   # }
-	holiday_supplies.each do |season, holidays|
+	holiday_hash.each do |season, holidays|
 		puts "#{season}:".capitalize
 		holidays.each do |holiday, supply|
 			holiday_array = holiday.to_s.split("_")
@@ -104,10 +104,20 @@ def all_supplies_in_holidays(holiday_hash)
 	end
 end
 
-def all_holidays_with_bbq(holiday_hash)
-  # return an array of holiday names (as symbols) where supply lists
-  # include the string "BBQ"
+# return an array of holiday names (as symbols) where supply lists
+# include the string "BBQ"
 
+def all_holidays_with_bbq(holiday_hash)
+	new_array = []
+	holiday_hash.each do |seasons, holidays|
+		binding.pry
+		holidays.each do |holiday, supply|
+			if supply.include?("BBQ")
+				new_array << holiday
+			end
+		end
+	end
+	new_array
 end
 
 holiday_supplies = {

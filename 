@@ -1,0 +1,18 @@
+
+[1mFrom:[0m /home/joel/dev/labs/apples-and-holidays-v-000/lib/holiday.rb @ line 119 Object#all_holidays_with_bbq:
+
+    [1;34m107[0m: [32mdef[0m [1;34mall_holidays_with_bbq[0m(holiday_hash)
+    [1;34m108[0m:   [1;34m# return an array of holiday names (as symbols) where supply lists[0m
+    [1;34m109[0m:   [1;34m# include the string "BBQ"[0m
+    [1;34m110[0m: 	new_array = []
+    [1;34m111[0m: 	holiday_supplies.each [32mdo[0m |seasons, holidays|
+    [1;34m112[0m: 		holidays.collect [32mdo[0m |holiday, supply|
+    [1;34m113[0m: 			[32mif[0m supply == [31m[1;31m"[0m[31mBBQ[1;31m"[0m[31m[0m
+    [1;34m114[0m: 				new_array << supply
+    [1;34m115[0m: 			[32mend[0m
+    [1;34m116[0m: 		[32mend[0m
+    [1;34m117[0m: 	[32mend[0m
+    [1;34m118[0m: 	new_array
+ => [1;34m119[0m: 	binding.pry
+    [1;34m120[0m: [32mend[0m
+
