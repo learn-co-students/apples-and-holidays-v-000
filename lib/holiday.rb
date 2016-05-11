@@ -102,7 +102,7 @@ def all_supplies_in_holidays(holiday_hash)
   # etc.
   
   holiday_hash.each do |season, holiday|
-    holiday_output =""
+    
     cap_array =[]
     season_array = season.to_s.split
     season_array.collect do |word|
@@ -111,6 +111,7 @@ def all_supplies_in_holidays(holiday_hash)
     season_str = cap_array.join(" ")
     puts season_str + ":"
       holiday.each do |day, supply|
+        holiday_output =""
         cap_array =[]
         holiday_array = day.to_s.split
         holiday_array.collect do |word|
