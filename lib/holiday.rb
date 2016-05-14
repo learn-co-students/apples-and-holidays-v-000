@@ -78,18 +78,7 @@ def all_supplies_in_holidays(holiday_hash)
           holiday_join = holiday_split.join(" ")
           holiday_line = ""
           holiday_line << "  #{holiday_join}: "
-
-          #supplies.each do |supply|
-          #  holiday_line << "#{supply} "
-
-          i = 0
-          supply_array = supplies
-          while i < supply_array.length - 1
-            holiday_line << "#{supply_array[i]}, "
-            i += 1
-          end
-          holiday_line << "#{supply_array.last}"
-
+          holiday_line << "#{supplies.join (", ")}"
           puts holiday_line
         end
       end
