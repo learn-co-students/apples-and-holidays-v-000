@@ -58,42 +58,29 @@ def add_new_holiday_with_supplies(holiday_hash, season, holiday_name, supply_arr
 end
 
 def all_winter_holiday_supplies(holiday_hash)
-  holiday_hash.select do |season, holiday_and_items|
-    if season == :winter
-        holiday_and_items.each do |holiday, item|
-          return item
-        end
-      end
+  holiday_hash[:winter].collect do |holiday, supplies|
+    supplies
+    end.flatten
+end
+
+
+
+def all_supplies_in_holidays(supplies_hash)
+  holiday_supplies.each do |season, holidays|
+    puts "#{season.capitalize}:"
+    holidays.each do |holiday, supplies|
+      puts"  #{holiday.to_s.split('_').map {|w| w.capitalize }.join(' ') }: #{supplies.join(", ")}"
+    end
   end
 end
 
-# from Avidor:
 
-"So it'll save the key and hash combo for anything that evals to true, right/
-
-So if just one holiday in the inner select evals to true, that whole season evals to true in the outter select and the whole season is 'selected'"
-
-# end from Avidor
-
-
-
-def all_supplies_in_holidays(holiday_hash)
-  # iterate through holiday_hash and print items such that your readout resembles:
-  # Winter:
-  #   Christmas: Lights, Wreath
-  #   New Years: Party Hats
-  # Summer:
-  #   Fourth Of July: Fireworks, BBQ
-  # etc.
-
-
-  
-end
-
-def all_holidays_with_bbq(holiday_hash)
-  # return an array of holiday names (as symbols) where supply lists
-  # include the string "BBQ"
-
+def all_holidays_with_bbq(supplies_hash)
+  supplies_hash.map do |season, holidays|
+    holidays.map do |holiday, supplies|
+      holiday if supplies.include?("BBQ")
+    end
+  end.flatten.compact
 end
 
 
