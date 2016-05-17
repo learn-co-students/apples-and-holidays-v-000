@@ -88,7 +88,9 @@ def all_supplies_in_holidays(holiday_hash)
 def all_holidays_with_bbq(holiday_hash)
   holidays_with_bbqs = holiday_hash.collect do |season, info|
      info.collect do |holiday, supplies|
-       holiday if supplies.include?("BBQ")
+       if supplies.include?("BBQ")
+        puts "#{holiday.to_s.split("_").map {|caps| caps.capitalize}.join(" ")}"
+      end
      end
    end
    holidays_with_bbqs.flatten.compact
