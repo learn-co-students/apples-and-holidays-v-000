@@ -81,22 +81,30 @@ def all_supplies_in_holidays(holiday_hash)
   #   Fourth Of July: Fireworks, BBQ
   # etc.
 
-   holiday_hash.each do |season, holiday|
-    puts "#{season.to_s.capitalize}: ".chomp
-      holiday.each do |holiday, array|
-        print "  #{holiday.to_s.capitalize}: "
-        array.each do |x|
-          if x != array[-1]
-            print x + ", "
-          else
-            print x + "\n"
-          end  
-        end
-      end
+   holiday_hash.each do |season, holidays|
+    puts "#{season.capitalize}:"
+    holidays.each do |holiday, supplies|
+      puts"  #{holiday.to_s.split('_').map {|w| w.capitalize }.join(' ') }: #{supplies.join(", ")}"
     end
   end
 
-# THIS WORKS BUT DOESN'T PASS THE TEST
+    #  holiday_hash.each do |season, holiday|
+    # puts "#{season.to_s.capitalize}:".chomp
+    #   holiday.each do |holiday, array|
+    #     print "  #{holiday.to_s.capitalize}: "
+    #     array.each do |x|
+    #       if x != array[-1]
+    #         print x + ", "
+    #       else
+    #         print x + "\n"
+    #       end  
+    #     end
+    #   end
+    # end
+  
+
+end
+
   
 
 
