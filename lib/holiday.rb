@@ -82,7 +82,7 @@ def all_supplies_in_holidays(holiday_hash)
   # etc.
 
    holiday_hash.each do |season, holiday|
-    puts season.to_s.capitalize + ":"
+    puts "#{season.to_s.capitalize}: ".chomp
       holiday.each do |holiday, array|
         print "  #{holiday.to_s.capitalize}: "
         array.each do |x|
@@ -96,7 +96,7 @@ def all_supplies_in_holidays(holiday_hash)
     end
   end
 
-# PRINTS EVERYTHING UNFORMATTED FOR TOMORROW
+# THIS WORKS BUT DOESN'T PASS THE TEST
   
 
 
