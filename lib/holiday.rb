@@ -1,8 +1,3 @@
-require 'pry'
-
-def second_supply_for_fourth_of_july(holiday_hash)
-  holiday_hash[:summer][:fourth_of_july][1] # returns the string 'BBQ' without hardcoding it       
-end
 # given that holiday_hash looks like this:
 # {
 #   :winter => {
@@ -20,6 +15,11 @@ end
 #   }
 # }
 # return the second element in the 4th of July array
+require 'pry'
+
+def second_supply_for_fourth_of_july(holiday_hash)
+  holiday_hash[:summer][:fourth_of_july][1] # returns the string 'BBQ' without hardcoding it       
+end
 
 def add_supply_to_winter_holidays(holiday_hash, supply)
   # holiday_hash is identical to the one above
@@ -52,27 +52,36 @@ def all_supplies_in_holidays(holiday_hash)
   # Summer:
   #   Fourth Of July: Fireworks, BBQ
   # etc.
-#   holiday_hash.each do | season, holidays |
-#     puts "#{season.capitalize}:"
-#     holidays.each do | holiday, supplies |
-#     puts "  #{holiday.to_s.gsub('_', ' ').split.join(' ').capitalize}: #{supplies.join(', ').capitalize}"
-#   end
-#   end
-# end
-
-
-
+  array = []
   holiday_hash.each do | season, holidays |
     puts "#{season.capitalize}:"
 
      holidays.each do | holiday, supplies |
-        holiday.to_s.split('_').each {|word| word.capitalize.join(' ')}
+        array = holiday.to_s.split('_')
+
+        array.collect do |word|
+          word.capitalize!
+          # binding.pry
+        end
+        puts "  #{array.join(' ')}: #{supplies.join(', ')}" #puts it outside if the last array so that it doesn't repeat 3 times
     end
   end
 end
 
 def all_holidays_with_bbq(holiday_hash)
   # return an array of holiday names (as symbols) where supply lists
-  # include the string "BBQ"
+  # include the string "BBQ"\\
+  array=[]
 
+     holiday_hash.collect do | season, holiday_names |
+
+       holiday_names.collect do | holiday, supplies | #collect the individual holidays and their values
+
+          if supplies.include?("BBQ") #check if any of the values are the "BBQ" string
+             array << holiday  # add the holiday names that have the "BBQ" string
+            #binding.pry
+          end
+       end
+     end
+  array #return the new array with the names of the holiday names as symbols
 end
