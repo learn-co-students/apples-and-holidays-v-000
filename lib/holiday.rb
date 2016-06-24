@@ -62,16 +62,17 @@ def add_new_holiday_with_supplies(holiday_hash, season, holiday_name, supply_arr
   # code here
   #adds new holiday and updated supplies to any season
   # remember to return the updated hash
-  holiday_hash.each do |seasons, holidays|
-    if season == ":winter"
-      holiday_hash[:winter][:holiday_name] = supply_array
-    elsif season == ":summer"
-      holiday_hash[:summer][:holiday_name] = supply_array
-    elsif season == ":fall"
-      holiday_hash[:fall][:holiday_name] = supply_array
-    else
-      holiday_hash[:spring][:holiday_name] = supply_array
-    end
+  holiday_hash[:season][:holiday_name] = supply_array
+  #holiday_hash.each do |seasons, holidays|
+    #if season == ":winter"
+      #holiday_hash[:winter][:holiday_name] = supply_array
+    #elsif season == ":summer"
+      #holiday_hash[:summer][:holiday_name] = supply_array
+    #elsif season == ":fall"
+    #  holiday_hash[:fall][:holiday_name] = supply_array
+  #  else
+    #  holiday_hash[:spring][:holiday_name] = supply_array
+  #  end
   holiday_hash
 end
 
