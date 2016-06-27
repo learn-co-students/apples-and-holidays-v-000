@@ -95,20 +95,26 @@ end
   # etc.
 
 
-def all_holidays_with_bbq(holiday_hash)
-  holiday_hash.each do |holidays, decorations|
-    decorations.inject([]) do |holiday, supply|
-      if supply.flatten.include?("BBQ")
-        holiday << supply.flatten[0]
-        holiday
-      end  
-    end
-  end
-end    
+# def all_holidays_with_bbq(holiday_hash)
+  # holiday_hash.each do |holidays, decorations|
+    # decorations.inject([]) do |holiday, supply|
+      # if supply.flatten.include?("BBQ")
+        # holiday << supply.flatten[0]
+        # holiday
+      # end  
+    # end
+  # end
+# end    
          
 
-
-
+def all_holidays_with_bbq(holiday_hash)
+  holiday_hash.inject([]) do |arr, hash|
+    hash[1].each do |holiday, supply|
+      arr << holiday if supply.include?("BBQ")    
+    end
+    arr
+  end
+end
 
 
 
