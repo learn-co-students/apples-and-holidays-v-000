@@ -68,23 +68,30 @@ def all_supplies_in_holidays(holiday_hash)
 
   holiday_hash.each do |season, data|
     season.to_s.capitalize!
+    puts "#{season}:"
     data.each do |holiday_name, supplies|
       holiday_name_array = holiday_name.to_s.split("_")
       holiday_name_array.collect do |x|
         x.capitalize!
       end
       holiday_name_array.join
-      binding.pry
+      puts "#{holiday_name}: #{supplies}"
     end
   end
-  puts "#{season}: #{holiday_name}: #{supplies}"
 
+  binding.pry
 end
 
 def all_holidays_with_bbq(holiday_hash)
   # return an array of holiday names (as symbols) where supply lists
   # include the string "BBQ"
-
+  holiday_hash.each do |season, holidays|
+    holidays.each do |holiday_name, supplies|
+      if supplies == "BBQ"
+        puts "#{holiday_name}"
+      end
+    end
+  end
 end
 
 
