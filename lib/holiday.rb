@@ -58,7 +58,7 @@ def all_winter_holiday_supplies(holiday_hash)
   # return an array of all of the supplies that are used in the winter season
   holiday_hash.each do |key, value|
     if key == :winter
-      value.values.flatten
+      return value.values.flatten
     end
   end
 end
@@ -71,13 +71,59 @@ def all_supplies_in_holidays(holiday_hash)
   # Summer:
   #   Fourth Of July: Fireworks, BBQ
   # etc.
-  
+
+  holiday_hash.each do |key, value| # first level
+    puts key.to_s.capitalize! + ":" # Print out the seasons
+    
+    value.each do |holiday, supply| # second level - loops through holidays and their supplies
+      # 'holiday' is the holiday symbol - christmas, new_years, etc
+      
+      key_array = holiday.to_s.split
+      # ["christmas", "new_years", "fourth_of_july", "thanksgiving", "memorial_day"]
+      new_array = [] # store properly formatted words here
+      
+      key_array.each do |word|
+        
+        if word.include? '_' # check for underscores
+          word = word.tr("_"," ") # replace underscore with space
+          temp_array = word.split # store multiple words to capitalize
+          temp_array.each do |word|
+            word.capitalize!
+          end
+          word = temp_array.join(" ") # join the array back into one phrase ie 'New Years'
+          new_array << word # add formatted word to new_array
+        else
+          new_array << word.capitalize! 
+        end
+        new_array #  return new_array
+      
+      end
+
+      value_string = supply.join(", ") # take supply array and split it into formatted string
+      
+      new_array.each do |word|
+        puts "  #{word}: #{value_string}"
+      end
+    
+    end
+
+  end
+
 end
 
 def all_holidays_with_bbq(holiday_hash)
   # return an array of holiday names (as symbols) where supply lists
   # include the string "BBQ"
-
+  bbq_array = []
+  holiday_hash.each do |season, holiday|
+    holiday.each do |holiday, supplies|
+      if supplies.include? "BBQ"
+        bbq_array << holiday
+        bbq_array
+      end
+    end
+  end
+  bbq_array
 end
 
 
@@ -98,5 +144,5 @@ holiday_hash = {
   }
 }
 
-all_winter_holiday_supplies(holiday_hash)
+all_holidays_with_bbq(holiday_hash)
 
