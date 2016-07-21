@@ -33,6 +33,13 @@ def add_supply_to_winter_holidays(holiday_hash, supply)
     end
   end
   holiday_hash
+
+  # Learn Solution #
+  # holiday_hash[:winter].each do |holiday, supplies|
+  #   supplies << supply
+  # end
+  #
+  # Much more concise than mine
 end 
 
 def add_supply_to_memorial_day(holiday_hash, supply)
@@ -45,6 +52,11 @@ def add_supply_to_memorial_day(holiday_hash, supply)
       end
     end
   end
+
+  # Learn solution
+  # holiday_hash[:spring][:memorial] << supply
+  # I thought we were supposed to do it the long way for some reason
+
 end
 
 def add_new_holiday_with_supplies(holiday_hash, season, holiday_name, supply_array)
@@ -61,6 +73,13 @@ def all_winter_holiday_supplies(holiday_hash)
       return value.values.flatten
     end
   end
+
+  # Learn Solution
+  # 
+  # holiday_supplies[:winter].map do |holiday, supplies|
+  #   supplies
+  # end.flatten
+  #
 end
 
 def all_supplies_in_holidays(holiday_hash)
@@ -72,17 +91,17 @@ def all_supplies_in_holidays(holiday_hash)
   #   Fourth Of July: Fireworks, BBQ
   # etc.
 
-  holiday_hash.each do |key, value| # first level
-    puts key.to_s.capitalize! + ":" # Print out the seasons
+  holiday_hash.each do |season, holidays| # first level
+    puts season.to_s.capitalize! + ":" # Print out the seasons
     
-    value.each do |holiday, supply| # second level - loops through holidays and their supplies
+    holidays.each do |holiday, supply| # second level - loops through holidays and their supplies
       # 'holiday' is the holiday symbol - christmas, new_years, etc
       
-      key_array = holiday.to_s.split
+      season_array = holiday.to_s.split
       # ["christmas", "new_years", "fourth_of_july", "thanksgiving", "memorial_day"]
       new_array = [] # store properly formatted words here
       
-      key_array.each do |word|
+      season_array.each do |word|
         
         if word.include? '_' # check for underscores
           word = word.tr("_"," ") # replace underscore with space
@@ -96,7 +115,6 @@ def all_supplies_in_holidays(holiday_hash)
           new_array << word.capitalize! 
         end
         new_array #  return new_array
-      
       end
 
       value_string = supply.join(", ") # take supply array and split it into formatted string
@@ -104,10 +122,20 @@ def all_supplies_in_holidays(holiday_hash)
       new_array.each do |word|
         puts "  #{word}: #{value_string}"
       end
-    
     end
-
   end
+
+
+  # LEARN SOLUTION -- REVIEW THIS ONE BECAUSE MY CODE WAS
+  # SO MUCH MORE COMPLEX THAN NECESSARY
+  #
+# holiday_supplies.each do |season, holidays| # first level
+#   puts "#{season.capitalize}:" # print out the seasons
+#   holidays.each do |holiday, supplies| # second level
+#     puts "  #{holiday.to_s.split('_').map {|w| w.capitalize }.join(' ') }: #{supplies.join(", ")}"
+#   end
+# end
+
 
 end
 
@@ -124,6 +152,15 @@ def all_holidays_with_bbq(holiday_hash)
     end
   end
   bbq_array
+
+  # Learn Solution
+  #
+  # holiday_hash.map do |season, holidays|
+  #   holidays.map do |holiday, supplies|
+  #     holiday if supplies.include?("BBQ")
+  #   end
+  # end.flatten.compact
+
 end
 
 
