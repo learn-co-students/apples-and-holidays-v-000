@@ -86,7 +86,7 @@ def all_holidays_with_bbq(holiday_hash)
   holiday_hash.each do |season, holiday_dic|
     holiday_dic.each do |holiday_name, supply|
 
-      supply.map do |sup|
+      supply.each do |sup|
 
         if sup == "BBQ"
 
@@ -95,4 +95,5 @@ def all_holidays_with_bbq(holiday_hash)
       end
     end
   end
+  return hol
 end
