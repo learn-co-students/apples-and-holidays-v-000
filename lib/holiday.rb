@@ -81,19 +81,12 @@ def all_supplies_in_holidays(holiday_hash)
 
     holidays_hash.map do |holiday_name, supplies|
 
-       holiday_name.to_s.split("_").map do |each_name|
 
-         puts "  #{each_name.capitalize!}: #{supplies.join(", ")}"
-
-         each_name.map do |name_to_string|
-          puts name_to_string.join(" ")
+         puts "  #{holiday_name.to_s.split("_").map { |each_name| each_name.capitalize }.join(" ")}: #{supplies.join(", ")}"
 
 
+    	end
 end
-
-       end
-    end
-  end
 end
 
 
@@ -104,14 +97,11 @@ def all_holidays_with_bbq(holiday_hash)
   # include the string "BBQ"
   holiday_hash.map do |season, holiday|
     holiday.map do |holiday_name, supplies|
-      if supplies.include? ("BBQ")
-holiday_name.to_s
 
+      if supplies.include? ("BBQ")
+holiday_name
 
       end
-
     end
-
-  end
-
+  end.flatten.compact
 end
