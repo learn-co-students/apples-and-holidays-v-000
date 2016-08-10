@@ -6,7 +6,7 @@ def add_supply_to_winter_holidays(holiday_supplies,items)
   holiday_supplies.each do |season, holiday|
     if season == :winter
         holiday.each do |holiday, supply|
-          items >> holiday[supply]
+          holiday[supply] << items
         end
     end
   end
