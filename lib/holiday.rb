@@ -13,11 +13,11 @@ def add_supply_to_winter_holidays(holiday_supplies)
 end
 
 def add_supply_to_memorial_day(holiday_supplies)
-  holiday_supplies.each do |season|
+  holiday_supplies.each do |season, holiday|
     if season == :spring
-      holiday.each do |holiday|
+      holiday.each do |holiday, supply|
         if holiday == :memorial_day
-          holiday << "Grill"
+          supply << "Grill"
         end
       end
     end
