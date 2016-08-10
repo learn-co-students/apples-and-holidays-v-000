@@ -2,11 +2,11 @@ def second_supply_for_fourth_of_july(holiday_supplies)
   holiday_supplies[:summer][:fourth_of_july][1]
 end
 
-def add_supply_to_winter_holidays(holiday_supplies)
+def add_supply_to_winter_holidays(holiday_supplies,items)
   holiday_supplies.each do |season, holiday|
     if season == :winter
         holiday.each do |holiday, supply|
-          supply << "Balloons"
+          holiday[supply] >> items
         end
     end
   end
@@ -26,6 +26,10 @@ end
 
 def add_new_holiday_with_supplies(holiday_supplies)
   holiday_supplies[:fall] = {[:columbus_day] => ["Flags", "Parade Floats", "Italian Food"]}
+  holiday_supplies.each do |season, holiday|
+      season[holiday] => supply << supply
+    end
+  end
 end
 
 def all_winter_holiday_supplies(holiday_supplies)
