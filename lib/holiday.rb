@@ -29,22 +29,30 @@ end
 def all_supplies_in_holidays(holiday_hash)
   holiday_hash.each do |season, holiday|
 
-    holiday.each do |holidays, supplies|
-      puts "#{season.capitalize!}:
-      #{holidays.capitalize!}: #{supplies.capitalize!}"
-      binding.pry
-    end
+  puts "#{season.to_s.capitalize!}:"
+
+    holiday.each do |holiday_name, supply|
+      if holiday_name.to_s.include? "_"
+        holiday_name.to_s.collect do |capitalized_holiday|
+          capitalized_string = capitalized_holiday.split("_").capitalize!.join
+          end
+        end
+      puts "#{holiday_name.to_s.capitalize!}: #{supply.to_s.join(", ")}"
+
+    end    
   end
 end
 
 def all_holidays_with_bbq(holiday_hash)
-  holiday_hash.each do |season, holiday|
+  bbq_holidays = []
+    holiday_hash.each do |season, holiday|
 
-    holiday.each do |holiday, supplies|
-      if supplies == "BBQ"
-        puts "#{holiday.keys}"
+      holiday.each do |holidays, supplies|
+        if supplies.include?("BBQ")
+          bbq_holidays << holidays
 
       end
     end
   end
+  bbq_holidays
 end
