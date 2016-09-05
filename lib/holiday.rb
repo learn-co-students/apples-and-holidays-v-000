@@ -5,18 +5,18 @@ def second_supply_for_fourth_of_july(holiday_hash)
 end
 
 def add_supply_to_winter_holidays(holiday_hash, supply)
-  holiday_hash[:winter][:christmas] << supply
-  holiday_hash[:winter][:new_years] << supply
+  holiday_hash[:winter].keys.map! do |holiday|
+    holiday_hash[:winter][holiday].push(supply)
+  end
 end
  
 def add_supply_to_memorial_day(holiday_hash, supply)
-  holiday_hash[:spring][:memorial_day] = supply
+  holiday_hash[:spring][:memorial_day] << supply
 end
 
 def add_new_holiday_with_supplies(holiday_hash, season, holiday_name, supply_array)
-  holiday_hash.keys { |k| if k == season; holiday_hash[k][holiday_name] = holiday_name end }
   holiday_hash[season][holiday_name] = supply_array
-  return holiday_hash
+  holiday_hash
 end
 
 def all_winter_holiday_supplies(holiday_hash)
@@ -47,8 +47,6 @@ end
 
 def all_holidays_with_bbq(holiday_hash)
   bbq_array = []
-  hkstring = ""
-  temp = {}
   holiday_hash.each do |season, holidays|
     holidays.each do |name, values|
       if holidays[name].include?("BBQ"); 
