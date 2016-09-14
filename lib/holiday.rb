@@ -61,7 +61,7 @@ end
 # include the string "BBQ"
 def all_holidays_with_bbq(holiday_supplies)
   bbqs = holiday_supplies.map do |season, holiday_name|
-         holiday_name.map do |supply_array| supply_array.include?("BBQ")
+         holiday_name.map do |holiday_name, supply_array| supply_array.include?("BBQ")
          end
        end
   return bbqs
