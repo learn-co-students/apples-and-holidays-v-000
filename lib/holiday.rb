@@ -33,34 +33,19 @@ end
 def add_supply_to_memorial_day(holiday_hash, supply)
   # again, holiday_hash is the same as the ones above
   # add the second argument to the memorial day array
-  holiday_hash[:spring][:memorial_day] << "Grill"
+holiday_hash[:spring][:memorial_day] << supply
 end
 
 def add_new_holiday_with_supplies(holiday_hash, season, holiday_name, supply_array)
   # code here
-  # remember to return the updated hash
-  #holiday_hash[:spring][:memorial_day].include do (Table Cloth)
-  #end
-  #holiday_hash[:spring][:memorial_day].push do (Table Cloth)
-  #end
-  #memorial_day_supplies = "BBQ","Grill", "Table Cloth"]
-  #holiday_hash[:spring][:memorial_day] = memorial_day_supplies
-  #holiday_hash[:spring][:memorial_day] = "Table Cloth"
-  #holiday_hash[:spring][:memorial_day].push do (Table Cloth)
-  #holiday_hash[:spring][:memorial_day][supplies].push do (Table Cloth)
-  #holiday_hash[:spring][:memorial_day] << "Table Cloth"
-  #holiday_hash[:spring][memorial_day][1] << "Table Cloth"
-  #holiday_hash[:spring][:memorial_day] << "Grill"
-  #holiday_hash[:spring][:memorial_day] << "Table Cloth"
-  add_supply_to_memorial_day = ["BBQ", "Grill"]
-  add_supply_to_memorial_day << "Table Cloth"
-  holiday_hash[:spring][:memorial_day] = add_supply_to_memorial_day
-  holiday_hash
+    holiday_hash[season][holiday_name] = supply_array
 end
 
 def all_winter_holiday_supplies(holiday_hash)
-  # return an array of all of the supplies that are used in the winter season
+    holiday_supplies[:winter].map do |holiday, supplies|
+      supplies
 
+  end.flatten
 end
 
 def all_supplies_in_holidays(holiday_hash)
@@ -72,7 +57,37 @@ def all_supplies_in_holidays(holiday_hash)
   #   Fourth Of July: Fireworks, BBQ
   # etc.
 
-end
+  holiday_hash.each do |season, holidays|
+   puts "#{season.to_s.capitalize!}:"
+   holidays.each do |holiday, supplies|
+    binding.pry
+    end
+ end
+
+
+
+ #holiday_hash.to_s |holday, supply|
+ #holiday_hash.split |holday, supply|
+ #holiday_hash.capitalize! |holday, supply|
+ #holiday_hash.join |holday, supply|
+
+ #holidays = holiday_hash.to_s
+ #holiday_names = holidays.split
+ #holiday_caps = holiday_names.capitalize!
+
+
+  #holiday_supplies[:winter].map do |winter_holiday, winter_supplies|
+    #winter_holiday_and_supplies
+  #end
+  #holiday_supplies[:summer].map do |summer_holiday, summer_supplies|
+    #summer_holiday_and_supplies
+  #end
+  #holiday_supplies[:fall].map do |fall_holiday, fall_supplies|
+    #fall_holiday_and_supplies
+  #end
+  #holiday_supplies[:spring].map do |spring_holiday, spring_supplies|
+    #spring_holiday_and_supplies
+#end.flatten
 
 def all_holidays_with_bbq(holiday_hash)
   # return an array of holiday names (as symbols) where supply lists
