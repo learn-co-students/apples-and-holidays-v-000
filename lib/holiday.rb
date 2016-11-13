@@ -29,7 +29,6 @@ def add_supply_to_winter_holidays(holiday_hash, supply)
   holiday_hash[:winter][:new_years] << "Balloons"
 end
 
-
 def add_supply_to_memorial_day(holiday_hash, supply)
   # again, holiday_hash is the same as the ones above
   # add the second argument to the memorial day array
@@ -57,40 +56,25 @@ def all_supplies_in_holidays(holiday_hash)
   #   Fourth Of July: Fireworks, BBQ
   # etc.
 
+# this is the first line of code that this iteration reads - which we should console.log the season in the correct format.
   holiday_hash.each do |season, holidays|
-   puts "#{season.to_s.capitalize!}:"
-   holidays.each do |holiday, supplies|
-    binding.pry
+    puts"#{season}:".capitalize
+    holidays.each do |holiday, supplies| # it will iterate through all the keys here then go to the next season in the parent iterator
+      new_holiday = holiday.to_s.split("_").map do |caps_holiday|
+        caps_holiday.to_s.capitalize
+      end
+      joined_holiday = new_holiday.join(" ")
+      puts"  " + "#{joined_holiday}: " + supplies.join(", ")
     end
- end
-
-
-
- #holiday_hash.to_s |holday, supply|
- #holiday_hash.split |holday, supply|
- #holiday_hash.capitalize! |holday, supply|
- #holiday_hash.join |holday, supply|
-
- #holidays = holiday_hash.to_s
- #holiday_names = holidays.split
- #holiday_caps = holiday_names.capitalize!
-
-
-  #holiday_supplies[:winter].map do |winter_holiday, winter_supplies|
-    #winter_holiday_and_supplies
-  #end
-  #holiday_supplies[:summer].map do |summer_holiday, summer_supplies|
-    #summer_holiday_and_supplies
-  #end
-  #holiday_supplies[:fall].map do |fall_holiday, fall_supplies|
-    #fall_holiday_and_supplies
-  #end
-  #holiday_supplies[:spring].map do |spring_holiday, spring_supplies|
-    #spring_holiday_and_supplies
-#end.flatten
+  end
+end
 
 def all_holidays_with_bbq(holiday_hash)
   # return an array of holiday names (as symbols) where supply lists
   # include the string "BBQ"
-
+  holiday_hash.map do  |season, holidays|
+  holidays.map do |holiday, supplies|
+    holiday_supplies = holiday if supplies.include?("BBQ")
+    end.flatten.compact #.flatten works on array #.compact works on array
+  end.flatten.compact
 end
