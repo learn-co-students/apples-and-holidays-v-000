@@ -87,9 +87,9 @@ def all_supplies_in_holidays(holiday_hash)
       puts "#{capitalized_season}:"
 
       holidays.each do |holiday, must_have|
-         holiday_name = holiday.to_s.split#("/_/")
+         holiday_name = holiday.to_s.split("_")
 
-         holiday_name.map { |word| word.capitalize! }.join(" ")
+         holiday_name.map { |word| word.capitalize! }#.join(" ")
 
          # holiday_name.each do |word|
          #    word.capitalize!
@@ -99,7 +99,8 @@ def all_supplies_in_holidays(holiday_hash)
          # holiday_name.join.to_s
          # binding.pry
 
-         puts "  #{holiday_name}: #{must_have.join(", ")}"
+
+         puts "  #{holiday_name.join(" ")}: #{must_have.join(", ")}"
 
          # counter = 0
          # supplies_length = must_have.length
@@ -125,5 +126,17 @@ end
 def all_holidays_with_bbq(holiday_hash)
   # return an array of holiday names (as symbols) where supply lists
   # include the string "BBQ"
+  bbq_holidays = []
 
+  holiday_hash.each do |season, holidays|
+     holidays.each do |holiday, must_have|
+        must_have.each do |item|
+           if item == "BBQ"
+              bbq_holidays << holiday
+           end
+        end
+     end
+  end
+
+  bbq_holidays
 end
