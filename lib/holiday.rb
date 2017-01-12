@@ -64,9 +64,11 @@ end
 
 def all_winter_holiday_supplies(holiday_hash)
   # return an array of all of the supplies that are used in the winter season
-holiday_hash[:winter][:christmas] << holiday_hash[:winter][:new_years]
+christmas = holiday_hash[:winter][:christmas]
+new_years = holiday_hash[:winter][:new_years]
+new_winter_supplies = christmas.push (new_years)
 binding.pry
-return holiday_hash
+return new_winter_supplies
 end
 
 def all_supplies_in_holidays(holiday_hash)
