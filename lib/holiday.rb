@@ -71,17 +71,6 @@ def all_winter_holiday_supplies(holiday_hash)
     #binding.pry
   end
 #binding.pry
-  array2 =[]
-  array2 << array.to_s.split
-  #binding.pry
-  array3 = []
-array2.each {|value|
-  if value != "[[:christmas,"
-    array3 << value
-binding.pry
-  end
-}
-puts array3
 return array.to_s
 end
 
