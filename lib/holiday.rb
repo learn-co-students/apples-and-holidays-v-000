@@ -85,16 +85,8 @@ def all_supplies_in_holidays(holiday_hash)
     #binding.pry
   end
 #binding.pry
-b=array.to_s
+b=array.join
 binding.pry
-c = []
-b.each_char do |value|
-unless value = "{", "}", "[", "]", ":", "=>"
-  binding.pry
-c << value
-  binding.pry
-end
-end
 end
 #binding.pry
 #c.each_char{|value|
