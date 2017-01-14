@@ -86,20 +86,27 @@ def all_supplies_in_holidays(holiday_hash)
   end
 #binding.pry
 b=array.to_s
-c = b.delete "{", "}", "[", "]", ":"
-d = []
-binding.pry
-c.each_char{|value|
-  #binding.pry
-  if value !="{"
-  #  binding.pry
-    d.push ("#{value}")
-  #  binding.pry
-  end
-}
-return d
-binding.pry
+#binding.pry
+c = b.delete "{"
+d = c.delete "}"
+e = d.delete "["
+f = e.delete "]"
+g = f.delete ":"
+h = g.delete "=>"
+return h
 end
+#binding.pry
+#c.each_char{|value|
+  #binding.pry
+#  if value !="{"
+  #  binding.pry
+#    d.push ("#{value}")
+  #  binding.pry
+#  end
+#}
+#return d
+#binding.pry
+#end
   # Winter:
   #   Christmas: Lights, Wreath
   #   New Years: Party Hats
