@@ -70,7 +70,9 @@ def all_winter_holiday_supplies(holiday_hash)
     #binding.pry
   end
 binding.pry
-return array
+b=array.flatten
+#https://ruby-doc.org/core-2.2.0/Array.html#method-i-flatten
+return b
 end
 
 def all_supplies_in_holidays(holiday_hash)
