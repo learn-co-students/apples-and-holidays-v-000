@@ -86,6 +86,14 @@ def all_supplies_in_holidays(holiday_hash)
   end
 #binding.pry
 b=array.to_s
+c = b.delete "{", "}", "[", "]", ":"
+d = []
+c.each_char {|value|
+  if value !="{",
+    d << value
+  end
+}
+return d
 binding.pry
 end
   # Winter:
