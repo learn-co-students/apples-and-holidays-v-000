@@ -70,7 +70,7 @@ def all_winter_holiday_supplies(holiday_hash)
     array<< value
     #binding.pry
   end
-binding.pry
+#binding.pry
 b=array.flatten
 #https://ruby-doc.org/core-2.2.0/Array.html#method-i-flatten
 return b
@@ -78,14 +78,22 @@ end
 
 def all_supplies_in_holidays(holiday_hash)
   # iterate through holiday_hash and print items such that your readout resembles:
+  array = []
+  holiday_hash.each_value do |value|
+    #http://ruby-doc.org/core-2.0.0/Hash.html
+    array<< value
+    #binding.pry
+  end
+#binding.pry
+b=array.to_s
+binding.pry
+end
   # Winter:
   #   Christmas: Lights, Wreath
   #   New Years: Party Hats
   # Summer:
   #   Fourth Of July: Fireworks, BBQ
   # etc.
-
-end
 
 def all_holidays_with_bbq(holiday_hash)
   # return an array of holiday names (as symbols) where supply lists
