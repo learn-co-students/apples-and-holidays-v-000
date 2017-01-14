@@ -88,9 +88,13 @@ def all_supplies_in_holidays(holiday_hash)
 b=array.to_s
 c = b.delete "{", "}", "[", "]", ":"
 d = []
-c.each_char {|value|
-  if value !="{",
-    d << value
+binding.pry
+c.each_char{|value|
+  #binding.pry
+  if value !="{"
+  #  binding.pry
+    d.push ("#{value}")
+  #  binding.pry
   end
 }
 return d
