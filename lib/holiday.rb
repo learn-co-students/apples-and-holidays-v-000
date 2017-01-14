@@ -86,7 +86,9 @@ def all_supplies_in_holidays(holiday_hash)
   end
 #binding.pry
 b=array.join
+c = b.delete "{""}""[""]"":""=>"
 binding.pry
+return c
 end
 #binding.pry
 #c.each_char{|value|
