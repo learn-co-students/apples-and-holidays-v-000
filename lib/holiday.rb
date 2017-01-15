@@ -82,16 +82,16 @@ def all_supplies_in_holidays(holiday_hash)
   value_array = []
   key_and_value_array = []
   #holiday_hash.each_pair do |key,value|
-  holiday_hash.each do|key,value|
-    binding.pry
+  holiday_hash.collect do|key,value|
+    #binding.pry
     #http://ruby-doc.org/core-2.0.0/Hash.html
     #binding.pry
-      key_and_value_array << key
-      key_and_value_array << value
+      key_and_value_array << "#{key}"
+      key_and_value_array << "#{value}"
       #binding.pry
   end
-  #binding.pry
-  key_and_value_array
+  binding.pry
+  key_and_value_array.join
 #binding.pry
 end
 #binding.pry
