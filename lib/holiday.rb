@@ -88,11 +88,11 @@ def all_supplies_in_holidays(holiday_hash)
     #binding.pry
       key_and_value_array << "#{key}"
       key_and_value_array << "#{value}"
-      binding.pry
+      #binding.pry
   end
   #binding.pry
-  key_and_value_array.join
-#binding.pry
+  key_and_value_array.join.capitalize!
+binding.pry
 end
 #binding.pry
 #c.each_char{|value|
