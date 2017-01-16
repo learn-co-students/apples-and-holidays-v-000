@@ -86,17 +86,17 @@ def all_supplies_in_holidays(holiday_hash)
       supplies.each do |supplies|
         supplies = []
         #puts "  #{holidays}: #{supplies}".capitalize
-        supplies << "#{supplies} ,"
-        #supplies.push (",")
-        binding.pry
+        #binding.pry
+        supplies << "#{supplies}"
+        #supplies << (",")
                   end
         b = "#{holidays}: ".capitalize
         #binding.pry
-        supplies.unshift ("#{holidays}: ".capitalize)
-        supplies.flatten
+        supplies.unshift ("  #{holidays}: ".capitalize)
+        puts supplies
         binding.pry
                   end
-        return c
+        #return c
         #binding.pry
                   end
 end
