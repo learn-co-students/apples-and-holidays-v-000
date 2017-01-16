@@ -82,19 +82,18 @@ def all_supplies_in_holidays(holiday_hash)
     puts "#{season}:".capitalize
     holidays.each do |holidays,supplies|
     #binding.pry
-      supplies.each do |supplies|
-       supplies_array = []
-       supplies_array.push ("#{supplies} ,")
-       supplies.array.push (",")
-      binding.pry
+      supplies.each do |item|
+       item_array = []
+       item_array.push ("#{item} ,")
+       #supplies.array.push (",")
+      #binding.pry
                   end
       b = "#{holidays}: ".capitalize
-      supplies.unshift (b)
-      binding.pry
-      print supplies.join
+      #$binding.pry
+      item_array.unshift (b)
+      print item_array.join
       #http://stackoverflow.com/questions/5018633/what-is-the-difference-between-print-and-puts
                   end
-
                   end
 end
   # Winter:
