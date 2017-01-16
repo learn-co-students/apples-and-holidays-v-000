@@ -90,7 +90,7 @@ def all_supplies_in_holidays(holiday_hash)
       key_and_value_array << key_array
       #value_array<< "#{value}"
       #key_and_value_array<< value_array
-      #binding.pry
+      binding.pry
   end
   a = key_array.join.capitalize
 end
