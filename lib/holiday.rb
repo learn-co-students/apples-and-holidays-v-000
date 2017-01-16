@@ -93,6 +93,7 @@ def all_supplies_in_holidays(holiday_hash)
       item_array.unshift (b)
       print item_array.join
       #http://stackoverflow.com/questions/5018633/what-is-the-difference-between-print-and-puts
+      #git remote -v
                   end
                   end
 end
