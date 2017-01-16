@@ -78,25 +78,22 @@ end
 
 def all_supplies_in_holidays(holiday_hash)
   # iterate through holiday_hash and print items such that your readout resembles:
-  holiday_hash.collect do|season,holidays|
+  holiday_hash.each do|season,holidays|
     puts "#{season}:".capitalize
     holidays.each do |holidays,supplies|
-    #binding.pry
-      supplies.each do |item|
-       item_array = []
-       item_array.push ("#{item} ,")
-       #supplies.array.push (",")
-      #binding.pry
-                  end
-      b = "#{holidays}: ".capitalize
-      binding.pry
-      item_array.unshift(b)
-      #binding.pry
-      print item_array.join
-      #http://stackoverflow.com/questions/5018633/what-is-the-difference-between-print-and-puts
-      #git remote -v
-                  end
-                  end
+    if holidays == :christmas || holidays == :new_years || holidays == :fourth_of_july || holidays == :thanksgiving || holidays == :memorial_day
+      supplies.each do |supplies|
+        supplies = []
+        supplies << "#{supplies}, T"
+        end
+        b = "#{holidays}: ".capitalize
+        #binding.pry
+        supplies.unshift (b)
+        binding.pry
+        puts supplies.join
+        end
+    end
+    end
 end
   # Winter:
   #   Christmas: Lights, Wreath
@@ -104,16 +101,14 @@ end
   # Summer:
   #   Fourth Of July: Fireworks, BBQ
   # etc.
-def all_holidays_with_bbq(holiday_hash)
+#def all_holidays_with_bbq(holiday_hash)
   # return an array of holiday names (as symbols) where supply lists
   # include the string "BBQ"
-  holiday_array = []
-  holiday_hash.each do |season, holidays|
-    holidays.each do |supplies|
-      if supplies == BBQ
-        holiday_array << :holidays
-      end
-  return holidays_array
-end
-end
-end
+  #holiday_array = []
+  #holiday_hash.each do |season, holidays|
+    #holidays.each do |supplies|
+      #if supplies == BBQ
+        #holiday_array << :holidays
+      #end
+  #return holidays_array
+#end
