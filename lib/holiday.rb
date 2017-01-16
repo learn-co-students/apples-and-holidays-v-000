@@ -78,30 +78,20 @@ end
 
 def all_supplies_in_holidays(holiday_hash)
   # iterate through holiday_hash and print items such that your readout resembles:
-  key_array = []
-  value_array = []
-  key_and_value_array = []
+  #key_array = []
+  #value_array = []
+  #key_and_value_array = []
   #holiday_hash.each_pair do |key,value|
   holiday_hash.collect do|season,holidays|
     #binding.pry
     #http://ruby-doc.org/core-2.0.0/Hash.html
     #binding.pry
-    key_array<< "#{season}:"
+    puts "#{season}: #{holidays}"
     binding.pry
     holidays.each do |holidays,supplies|
-      key_array<< "#{holidays}:"#{holidays}: 
-      holidays.each do|supplies|
-        key_array<<"#{supplies}:"
-      #{supplies}"
-      #key_and_value_array << key_array
-      #value_array<< "#{value}"
-      #key_and_value_array<< value_array
-      binding.pry
-    end
+    puts "#{supplies}"#{holidays}: 
   end
   end
-  binding.pry
-  a = key_array.join.capitalize
 end
 #binding.pry
 #c.each_char{|value|
