@@ -86,10 +86,10 @@ def all_supplies_in_holidays(holiday_hash)
     #binding.pry
     #http://ruby-doc.org/core-2.0.0/Hash.html
     #binding.pry
-    puts "#{season}: #{holidays}"
+    puts "#{season}:"
     binding.pry
     holidays.each do |holidays,supplies|
-    puts "#{supplies}"#{holidays}: 
+    puts "#{holidays}: #{supplies}"#{holidays}:
   end
   end
 end
