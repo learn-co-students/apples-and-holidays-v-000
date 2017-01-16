@@ -81,14 +81,16 @@ def all_supplies_in_holidays(holiday_hash)
   holiday_hash.each do|season,holidays|
     puts "#{season}:".capitalize
     holidays.each do |holidays,supplies|
-        binding.pry
-        puts "#{holidays}: ".capitalize
-        supplies.join(",")
+        holiday_array = []
+        holiday_array = holidays.to_s.split("_")
+        holiday_array.each {|value| value.capitalize!}
+        #binding.pry
+        puts "  " + holiday_array.join(" ") + ": " + supplies.join(", ")
         #binding.pry
         #https://en.wikibooks.org/wiki/Ruby_Programming/Here_documents
         end
     end
-    end
+end
 #end
   # Winter:
   #   Christmas: Lights, Wreath
