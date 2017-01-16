@@ -81,20 +81,15 @@ def all_supplies_in_holidays(holiday_hash)
   holiday_hash.each do|season,holidays|
     puts "#{season}:".capitalize
     holidays.each do |holidays,supplies|
-    if holidays == :christmas || holidays == :new_years || holidays == :fourth_of_july || holidays == :thanksgiving || holidays == :memorial_day
-      supplies.each do |supplies|
-        supplies = []
-        supplies << "#{supplies}, T"
-        end
-        b = "#{holidays}: ".capitalize
-        #binding.pry
-        supplies.unshift (b)
         binding.pry
-        puts supplies.join
+        puts "#{holidays}: ".capitalize
+        supplies.join(",")
+        #binding.pry
+        #https://en.wikibooks.org/wiki/Ruby_Programming/Here_documents
         end
     end
     end
-end
+#end
   # Winter:
   #   Christmas: Lights, Wreath
   #   New Years: Party Hats
