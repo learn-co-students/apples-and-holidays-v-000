@@ -86,13 +86,13 @@ def all_supplies_in_holidays(holiday_hash)
     #binding.pry
     #http://ruby-doc.org/core-2.0.0/Hash.html
     #binding.pry
-      key_and_value_array << "#{key}"
-      key_and_value_array << "#{value}"
+      key_array<< "#{key}:, #{value}"
+      key_and_value_array << key_array
+      #value_array<< "#{value}"
+      #key_and_value_array<< value_array
       #binding.pry
   end
-  #binding.pry
-  key_and_value_array.join.capitalize!
-binding.pry
+  a = key_array.join.capitalize
 end
 #binding.pry
 #c.each_char{|value|
