@@ -89,8 +89,9 @@ def all_supplies_in_holidays(holiday_hash)
       #binding.pry
                   end
       b = "#{holidays}: ".capitalize
-      #$binding.pry
-      item_array.unshift (b)
+      binding.pry
+      item_array.unshift(b)
+      #binding.pry
       print item_array.join
       #http://stackoverflow.com/questions/5018633/what-is-the-difference-between-print-and-puts
       #git remote -v
