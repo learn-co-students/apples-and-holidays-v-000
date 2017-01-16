@@ -90,10 +90,10 @@ def all_supplies_in_holidays(holiday_hash)
         supplies << "#{supplies}"
         #supplies << (",")
                   end
-        b = "#{holidays}: ".capitalize
+        #b = "#{holidays}: ".capitalize
         #binding.pry
-        supplies.unshift ("  #{holidays}: ".capitalize)
-        puts supplies
+        #supplies.unshift ("  #{holidays}: ".capitalize)
+        #puts supplies
         binding.pry
                   end
         #return c
