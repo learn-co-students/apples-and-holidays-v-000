@@ -86,15 +86,19 @@ def all_supplies_in_holidays(holiday_hash)
     #binding.pry
     #http://ruby-doc.org/core-2.0.0/Hash.html
     #binding.pry
-    key_array<< "#{season}"
+    key_array<< "#{season}:"
     binding.pry
     holidays.each do |holidays,supplies|
-      key_array<< "#{holidays}: #{supplies}"
+      key_array<< "#{holidays}:"#{holidays}: 
+      holidays.each do|supplies|
+        key_array<<"#{supplies}:"
+      #{supplies}"
       #key_and_value_array << key_array
       #value_array<< "#{value}"
       #key_and_value_array<< value_array
       binding.pry
     end
+  end
   end
   binding.pry
   a = key_array.join.capitalize
