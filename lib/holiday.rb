@@ -83,8 +83,9 @@ def all_supplies_in_holidays(holiday_hash)
     holidays.each do |holidays,supplies|
         holiday_array = []
         holiday_array = holidays.to_s.split("_")
+        binding.pry
         holiday_array.each {|value| value.capitalize!}
-        #binding.pry
+        binding.pry
         puts "  " + holiday_array.join(" ") + ": " + supplies.join(", ")
         #binding.pry
         #https://en.wikibooks.org/wiki/Ruby_Programming/Here_documents
@@ -106,10 +107,10 @@ def all_holidays_with_bbq(holiday_hash)
     holidays.each do |holidays,supplies|
     supplies.each do |items|
       if items == "BBQ"
-        binding.pry
+        #binding.pry
         holiday_array << holidays
       end
-      binding.pry
+      #binding.pry
 end
 end
 end
