@@ -98,14 +98,20 @@ end
   # Summer:
   #   Fourth Of July: Fireworks, BBQ
   # etc.
-#def all_holidays_with_bbq(holiday_hash)
+def all_holidays_with_bbq(holiday_hash)
   # return an array of holiday names (as symbols) where supply lists
   # include the string "BBQ"
-  #holiday_array = []
-  #holiday_hash.each do |season, holidays|
-    #holidays.each do |supplies|
-      #if supplies == BBQ
-        #holiday_array << :holidays
-      #end
-  #return holidays_array
-#end
+  holiday_array = []
+  holiday_hash.each do |season, holidays|
+    holidays.each do |holidays,supplies|
+    supplies.each do |items|
+      if items == "BBQ"
+        binding.pry
+        holiday_array << holidays
+      end
+      binding.pry
+end
+end
+end
+return holiday_array
+end
