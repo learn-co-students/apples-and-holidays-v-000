@@ -1,4 +1,19 @@
 require 'pry'
+holiday_supplies = {
+  :winter => {
+    :christmas => ["Lights", "Wreath"],
+    :new_years => ["Party Hats"]
+  },
+  :summer => {
+    :fourth_of_july => ["Fireworks", "BBQ"]
+  },
+  :fall => {
+    :thanksgiving => ["Turkey"]
+  },
+  :spring => {
+    :memorial_day => ["BBQ"]
+  }
+}
 
 def second_supply_for_fourth_of_july(holiday_supplies)
   holiday_supplies[:summer][:fourth_of_july][1]
@@ -6,17 +21,19 @@ end
 
 def add_supply_to_winter_holidays(holiday_supplies, supply)
   holiday_supplies[:winter].each do |holiday, supplies|
-    supplies << supply
+  supplies << supply
   end
 end
 
-def add_supply_to_memorial_day(holiday_supplies, supply)
-  holiday_supplies[:spring][:memorial_day] = "Grill", "Table Cloth"
+  def add_supply_to_memorial_day(holiday_supplies, supply)
+    holiday_supplies[:spring].each do |holiday, supplies|
+      supplies << supply
+  end
 end
 
-def add_new_holiday_with_supplies(holiday_supplies, supply, arg, hash)
-  holiday_supplies[:fall][:columbus_day] = "Flags", "Italian Food", "Parade Floats"
-  holiday_supplies[:winter][:valentines_day] = "Candy Hearts", "Cupid Cut-Out"
+def add_new_holiday_with_supplies(holiday_supplies, supplies, holiday, supply)
+  holiday_supplies[:fall][:columbus_day] = supply
+  holiday_supplies[:winter][:valentines_day] = supply
 end
 
 def all_winter_holiday_supplies(holiday_supplies)
@@ -35,9 +52,9 @@ def all_supplies_in_holidays(supplies_hash)
 end
 
 def all_holidays_with_bbq(holiday_supplies)
-  holiday_supplies.collect do |season, holiday|
-    holiday.collect do |holidays, supplies|
-      holidays if supplies.include?("BBQ")
+  holiday_supplies.collect do |season, holidays|
+    holidays.collect do |holiday, supplies|
+      holiday if supplies.include?("BBQ")
     end
   end.flatten.compact
 end
