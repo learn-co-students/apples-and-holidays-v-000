@@ -69,7 +69,9 @@ def all_holidays_with_bbq(holiday_hash)
   #  holyday_hash.select{|key, supplies_array| supplies_array.include?("BBQ")}.keys
   #end
   #z.flatten
-  holiday_hash.values.map{|holyday_hash| holyday_hash.select{|key, supplies_array| supplies_array.include?("BBQ")}.keys}.flatten
+  holiday_hash.values.map do |holyday_hash| 
+    holyday_hash.select{|key, supplies_array| supplies_array.include?("BBQ")}.keys
+  end.flatten
 end
 
 
