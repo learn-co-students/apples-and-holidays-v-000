@@ -25,7 +25,7 @@ def add_supply_to_winter_holidays(holiday_hash, supply)
   # holiday_hash is identical to the one above
   # add the second argument, which is a supply, to BOTH the
   # Christmas AND the New Year's arrays
-  holiday_hash[:winter].each { |key, value| holiday_hash[:winter][key] << supply }
+  holiday_hash[:winter].each { |holiday, supplies| supplies << supply }
 end
 
 
@@ -57,8 +57,7 @@ def all_supplies_in_holidays(holiday_hash)
   holiday_hash.each do |season, holidays|
     puts season.to_s.capitalize + ":"
     holidays.each do |holiday, supplies|
-      holiday = holiday.to_s.split("_").map { |word| word.capitalize }.join(" ")
-      puts "  #{holiday}: #{supplies.join(", ")}"
+      puts "  #{holiday.to_s.split("_").map { |word| word.capitalize }.join(" ")}: #{supplies.join(", ")}"
     end
   end
 end
@@ -75,10 +74,3 @@ def all_holidays_with_bbq(holiday_hash)
 
   bbq_holidays
 end
-
-
-
-
-
-
-
