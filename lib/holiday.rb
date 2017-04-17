@@ -42,16 +42,6 @@ def add_supply_to_memorial_day(holiday_hash, supply)
 end
 
 def add_new_holiday_with_supplies(holiday_hash, season, holiday_name, supply_array)
-  # holiday_hash.each do | season_key, supply_hash |
-  #
-  #           supply_hash.each do | holiday, supply_item |
-  #             if holiday != holiday_name
-  #
-  #       end
-  #     end
-  #
-  # end
-  # supply_hash[holiday_name] = supply_array
   holiday_hash[season][holiday_name] = supply_array
 end
 
@@ -70,7 +60,6 @@ end
 def all_supplies_in_holidays(holiday_hash)
   holiday_hash.each do | season, supply_hash |
     supply_hash.each do | holiday, supply |
-      # holidayz = holiday.split.capitalize!
       puts "#{season.capitalize}:"
       puts "  #{holiday.to_s.split('_').map(&:capitalize).join(' ')}: #{supply.join(', ')}"
     end
@@ -88,7 +77,13 @@ end
 
 
 def all_holidays_with_bbq(holiday_hash)
-  # return an array of holiday names (as symbols) where supply lists
-  # include the string "BBQ"
-
+    bbq_holidays = []
+  holiday_hash.each do | season, supply_hash |
+    supply_hash.each do | holiday, supply_item |
+      if supply_item.include?("BBQ")
+        bbq_holidays << holiday
+      end
+    end
+  end
+  bbq_holidays
 end
