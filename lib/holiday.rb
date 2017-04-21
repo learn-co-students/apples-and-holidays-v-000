@@ -72,7 +72,7 @@ def all_supplies_in_holidays(holiday_hash)
           holiday.each do |holiday, supply_array|
               caps = holiday.to_s.split("_")
               caps.each {|word| word.capitalize!}
-              puts "  #{caps.join(" ")}: #{supply_array.join(", ")}"
+              puts " #{caps.join(" ")}: #{supply_array.join(", ")}"
             end
       end
 end
@@ -86,7 +86,7 @@ def all_holidays_with_bbq(holiday_hash)
           if supply_array.include?("BBQ")
             bbq << holiday
           end
-      end
+        end
     end
     bbq
 end
