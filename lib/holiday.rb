@@ -70,10 +70,9 @@ def all_supplies_in_holidays(holiday_hash)
 
       #format supplies
       supplies.map do |supply|
-      binding.pry
       end.join(' ')
 
-      puts "#{capitalized_holiday}: #{supply}"
+      puts "#{capitalized_holiday}: "
     end
   end
 end
