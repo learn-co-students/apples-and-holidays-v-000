@@ -55,7 +55,7 @@ end
 def all_winter_holiday_supplies(holiday_hash)
   holiday_hash.each do |argument, data|
     data.each do |festivals, supplies|
-        supplies << "Lights"
+       supplies << "Lights"
     end
   end
   holiday_hash
