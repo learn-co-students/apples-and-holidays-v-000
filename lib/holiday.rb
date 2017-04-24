@@ -53,12 +53,15 @@ def add_new_holiday_with_supplies(holiday_hash, season, holiday_name, supply_arr
 end
 
 def all_winter_holiday_supplies(holiday_hash)
+    sup = []
   holiday_hash.each do |argument, data|
-    data.each do |festivals, supplies|
-       supplies << "Lights"
+    if argument == :winter
+      data.each do |e|
+        sup << e
+      end
     end
   end
-  
+      sup.flatten
 end
 
 def all_supplies_in_holidays(holiday_hash)
@@ -69,6 +72,20 @@ def all_supplies_in_holidays(holiday_hash)
   # Summer:
   #   Fourth Of July: Fireworks, BBQ
   # etc.
+ holiday_hash.each do |seasons, data|
+   cap_seasons = seasons.to_s.capitalize
+   cap_fest = []
+   cap_fest = cap_fest.join(' ')
+      data.each do |festival, supplies|
+        fest = festival.to_s.split('_')
+          fest.each do |e|
+            e.capitalize!
+            cap_fest << e
+            binding.pry
+          end
+
+     end
+  end
 
 end
 
