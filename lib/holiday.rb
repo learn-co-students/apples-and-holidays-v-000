@@ -74,15 +74,19 @@ def all_supplies_in_holidays(holiday_hash)
   # etc.
  holiday_hash.each do |seasons, data|
    cap_seasons = seasons.to_s.capitalize
-       cap_fest = []
+
       data.each do |festival, supplies|
         fest = festival.to_s.split('_')
+          fest_string = []
           fest.each do |e|
-            e.capitalize!
+            fest_string << e.capitalize!
            binding.pry
           end
-     end
-     puts "#{cap_seasons}: #{cap_fest}"
+
+        end
+         fest_string
+       puts "#{cap_seasons}: #{fest_string}"
+
   end
 end
 
