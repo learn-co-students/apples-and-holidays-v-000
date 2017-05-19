@@ -18,13 +18,20 @@ def second_supply_for_fourth_of_july(holiday_hash)
   #   }
   # }
   # return the second element in the 4th of July array
+  holiday_hash[:summer][:fourth_of_july][1]
+
+
 end
 
 def add_supply_to_winter_holidays(holiday_hash, supply)
   # holiday_hash is identical to the one above
   # add the second argument, which is a supply, to BOTH the
   # Christmas AND the New Year's arrays
+  holiday_hash[:winter].collect do |key, val|
+    holiday_hash[:winter][key] = supply
 
+  end
+  holiday_hash[:winter]
 end
 
 
@@ -32,16 +39,28 @@ def add_supply_to_memorial_day(holiday_hash, supply)
   # again, holiday_hash is the same as the ones above
   # add the second argument to the memorial day array
 
+  holiday_hash.each do |season, holidays|
+    holidays.each do |holiday, supp|
+      if holiday == :memorial_day
+        supp.push(supply)
+      end
+
+    end
+  end
+
 end
 
 def add_new_holiday_with_supplies(holiday_hash, season, holiday_name, supply_array)
   # code here
   # remember to return the updated hash
+  holiday_hash[season][holiday_name] = supply_array
+  holiday_hash
 
 end
 
 def all_winter_holiday_supplies(holiday_hash)
   # return an array of all of the supplies that are used in the winter season
+  holiday_hash[:winter].values.flatten
 
 end
 
@@ -53,18 +72,54 @@ def all_supplies_in_holidays(holiday_hash)
   # Summer:
   #   Fourth Of July: Fireworks, BBQ
   # etc.
+  temps = ""
+  tempss = ""
+  tempa = {}
 
+
+  holiday_hash.each do |seasons, holidays|
+    temps = seasons.capitalize.to_s + ":"
+    puts temps
+
+
+    holidays.each do |key, val|
+      new_val = " "
+      counter = 0
+      counter2 = 0
+      string = key.to_s.split("_")
+      while string.size > counter2
+        string[counter2] = string[counter2].capitalize
+        counter2 = counter2 + 1
+      end
+      tempss = string.join(" ")
+
+
+      while val.size > counter
+        if counter == 0
+          new_val = new_val + val[counter]
+          counter = counter + 1
+        else
+          new_val = new_val + ", " + val[counter]
+          counter = counter + 1
+        end
+      end
+      puts "  " + tempss + ":" + new_val
+
+    end
+  end
 end
 
 def all_holidays_with_bbq(holiday_hash)
   # return an array of holiday names (as symbols) where supply lists
   # include the string "BBQ"
-
+  new_arr = []
+  holiday_hash.each do |season, holidays|
+    holidays.each do |key, val|
+      if val.include?("BBQ")
+        new_arr.push(key)
+      end
+    end
+    
+  end
+ new_arr
 end
-
-
-
-
-
-
-
