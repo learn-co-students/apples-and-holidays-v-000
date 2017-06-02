@@ -90,39 +90,64 @@ def all_winter_holiday_supplies(holiday_hash)
 end
 
 def all_supplies_in_holidays(holiday_hash)
-  holiday_hash.each do |key, value|
-    string = key.to_s
-    if string.include?("_")
-      array = key.split("_")
-      array[0].capitalize
-      array[1].capitalize
-      array[2].capitalize
-      string = array.join(" ")
-      final =  "#{string}:"
-   else
-     final =  "#{key.capitalize}:"
-   end
-    holiday_hash.each do |name, data|
-      string = name.to_s
-      if string.include?("_")
-        array = key.split("_")
-        array.each do |index|
-          array[index].capitalize
-        end
-        string = array.join(" ")
-      else
-        string = string.capitalize
-      end
-      final = "#{string}: "
-      if data.length > 1
-        data.each do |index|
-          final += "#{data[index]} "
-        end
-      else
-        final += "#{data[0]}"
-      end
-    end
+  # holiday_hash.each do |season, holidays|
+  #   puts "#{season.to_s.capitalize}:"
+  #
+  #   holidays.each do |holiday, supplies|
+  #     capitalized = holiday.to_s.split('_').each{|word| word.capitalize!}.join(" ")
+  #     puts "  #{capitalized}: #{supplies.join(', ')}"
+  #   end
+
+holiday_hash.each do |season, holidays|
+  puts "#{season.to_s.capitalize}:"
+  holidays.each do |holiday, supplies|
+    capitalized = holiday.to_s.split('_').each{|word| word.capitalize!}.join(" ")
+    puts "  #{capitalized}: #{supplies.join(", ")}"
   end
+end
+  # finish = ""
+  # final = ""
+  # holiday_hash.each do |key, value|
+  #   string = key.to_s
+  #  puts "#{string.capitalize}:"
+  #
+  #   value.each do |name, data|
+  #     final = name.to_s
+  #     if final.include?("_")
+  #       array = final.split("_")
+  #       counter = 0
+  #       array.each do |index|
+  #         array[counter].capitalize!
+  #         counter += 1
+  #       end
+  #       final = array.join(" ")
+  #     else
+  #        final.capitalize!
+  #     end
+  #     finish += "  #{final}: "
+  #       if data.length > 1
+  #         counter = 0
+  #         data.each do |index|
+  #           if counter == data.length - 1
+  #             finish += "#{index}"
+  #
+  #           else
+  #             finish += "#{index}, "
+  #           end
+  #           counter += 1
+  #         end
+  #       else
+  #         finish += "#{data[0]}"
+  #       end
+  #         #binding.pry
+  #     puts finish
+
+
+
+    #end
+
+  #end
+
 end
 
   # iterate through holiday_hash and print items such that your readout resembles:
@@ -138,5 +163,15 @@ end
 def all_holidays_with_bbq(holiday_hash)
   # return an array of holiday names (as symbols) where supply lists
   # include the string "BBQ"
-
+  array = []
+  holiday_hash.each do |season, holidays|
+    holidays.each do |holiday, supplies|
+      supplies.each do |word|
+        if word == "BBQ"
+          array << holiday
+        end
+      end
+    end
+  end
+  return array
 end
