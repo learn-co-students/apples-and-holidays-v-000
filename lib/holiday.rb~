@@ -1,6 +1,6 @@
 require 'pry'
 
-=begin
+
 
   holiday_hash = {
      :winter => {
@@ -18,7 +18,7 @@ require 'pry'
      }
    }
 
-=end
+
 
 
 def second_supply_for_fourth_of_july(holiday_hash)
@@ -34,13 +34,19 @@ def add_supply_to_winter_holidays(holiday_hash, supply)
   # Christmas AND the New Year's arrays
   
  holiday_hash.each do |key|
-		  if key.first == 'winter'.to_sym
-		      holiday_hash[key.first].each do | k, v|
-		        v << supply
-			end
+    if key.first == 'winter'.to_sym
+        holiday_hash[key.first].each do | k, v|
+          v << supply
+          # puts v.inspect, shows content of obj (for this i.e:[content], [content])
+          #could also use v.class (arr)
+        end
     end 
   end
   holiday_hash
+
+ # or you an do this:
+ # holiday_hash[:winter][:christmas] << "#{supply}"
+ # holiday_hash[:winter][:new_years] << "#{supply}"
 
 end
 
@@ -106,3 +112,4 @@ def all_holidays_with_bbq(holiday_hash)
 end
 
 
+puts all_holidays_with_bbq(holiday_hash)
