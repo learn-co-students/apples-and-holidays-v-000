@@ -1,0 +1,6 @@
+season
+season_details_hash
+holiday
+holiday_details_hash
+attribute
+data
