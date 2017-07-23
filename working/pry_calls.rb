@@ -1,0 +1,8 @@
+season
+season_details_hash
+season_name
+holiday
+holiday_supplies
+holiday_name
+item
+items
