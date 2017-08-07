@@ -1,0 +1,29 @@
+
+[1mFrom:[0m /home/aasamuelj-70489/code/labs/apples-and-holidays-v-000/lib/holiday.rb @ line 67 Object#all_supplies_in_holidays:
+
+    [1;34m52[0m: [32mdef[0m [1;34mall_supplies_in_holidays[0m(holiday_hash)
+    [1;34m53[0m:   [1;34m# iterate through holiday_hash and print items such that your readout resembles:[0m
+    [1;34m54[0m:   [1;34m# Winter:[0m
+    [1;34m55[0m:   [1;34m#   Christmas: Lights, Wreath[0m
+    [1;34m56[0m:   [1;34m#   New Years: Party Hats[0m
+    [1;34m57[0m:   [1;34m# Summer:[0m
+    [1;34m58[0m:   [1;34m#   Fourth Of July: Fireworks, BBQ[0m
+    [1;34m59[0m:   [1;34m# etc.[0m
+    [1;34m60[0m:   holiday_hash.each [32mdo[0m |key, value|
+    [1;34m61[0m:     key = key.to_s.capitalize! + [31m[1;31m"[0m[31m:[1;31m"[0m[31m[0m
+    [1;34m62[0m:     puts key
+    [1;34m63[0m:     value.each [32mdo[0m |key2, value2|
+    [1;34m64[0m: 
+    [1;34m65[0m:       array = (key2.to_s.split([31m[1;31m"[0m[31m [1;31m"[0m[31m[0m) << value2).flatten
+    [1;34m66[0m:       first_word = [31m[1;31m"[0m[31m#{array[0].capitalize!}[0m[31m: [1;31m"[0m[31m[0m
+ => [1;34m67[0m:       binding.pry
+    [1;34m68[0m:       key2.each [32mdo[0m |word|
+    [1;34m69[0m:         word.capitalize!
+    [1;34m70[0m:       [32mend[0m
+    [1;34m71[0m:       key2.join
+    [1;34m72[0m: 
+    [1;34m73[0m:       puts [31m[1;31m"[0m[31m  #{key2}[0m[31m: #{value2}[0m[31m[1;31m"[0m[31m[0m
+    [1;34m74[0m:     [32mend[0m
+    [1;34m75[0m:   [32mend[0m
+    [1;34m76[0m: [32mend[0m
+
