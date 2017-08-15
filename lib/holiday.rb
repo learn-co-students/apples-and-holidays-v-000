@@ -56,12 +56,27 @@ def all_supplies_in_holidays(holiday_hash)
 end
 
 def all_holidays_with_bbq(holiday_hash)
+  bbq_holidays = []
   holiday_hash.collect do |seasons, holidays|
     holidays.collect do |holiday, supplies|
-      holiday if supplies.include?("BBQ")
+      if supplies.include?("BBQ")
+        bbq_holidays << holiday
+      end
     end
-  end.flatten.compact
+  end
+  bbq_holidays.flatten
 end
+
+#solution code for all_holidays_with_bbq:
+# def all_holidays_with_bbq(holiday_hash)
+#   holiday_hash.collect do |seasons, holidays|
+#     holidays.collect do |holiday, supplies|
+#       holiday if supplies.include?("BBQ")
+#     end
+#   end.flatten.compact #I don't understand this.
+# end
+
+
 
 # holiday_hash = {
 #   :winter => {
