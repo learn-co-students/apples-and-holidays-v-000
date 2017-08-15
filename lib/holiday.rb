@@ -64,19 +64,19 @@ def all_holidays_with_bbq(holiday_hash)
       end
     end
   end
-  bbq_holidays.flatten
+  bbq_holidays
 end
 
-#solution code for all_holidays_with_bbq:
+#### -------solution code for all_holidays_with_bbq:--------####
 # def all_holidays_with_bbq(holiday_hash)
 #   holiday_hash.collect do |seasons, holidays|
 #     holidays.collect do |holiday, supplies|
 #       holiday if supplies.include?("BBQ")
 #     end
-#   end.flatten.compact #I don't understand this.
+#   end.flatten.compact #These methods are operating on the return value which looks like this:
+#   #[[nil, nil], [:fourth_of_july], [nil], [:memorial_day]]
+#   #.flatten turns it into one array; .compact removes the nil elements
 # end
-
-
 
 # holiday_hash = {
 #   :winter => {
