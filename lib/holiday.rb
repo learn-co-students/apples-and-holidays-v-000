@@ -57,45 +57,68 @@ def all_winter_holiday_supplies(holiday_hash)
   decorations.flatten
 end
 
-def all_supplies_in_holidays(holiday_hash)
-  # iterate through holiday_hash and print items such that your readout resembles:
-  # Winter:
-  #   Christmas: Lights, Wreath
-  #   New Years: Party Hats
-  # Summer:
-  #   Fourth Of July: Fireworks, BBQ
-  # etc.
-  decorations = []
+# def all_supplies_in_holidays(holiday_hash)
+#   # iterate through holiday_hash and print items such that your readout resembles:
+#   # Winter:
+#   #   Christmas: Lights, Wreath
+#   #   New Years: Party Hats
+#   # Summer:
+#   #   Fourth Of July: Fireworks, BBQ
+#   # etc.
+#   decorations = []
+#
+#   holiday_hash.each do |season, holidays|
+#     decorations << season.to_s.capitalize + ":"
+#      holidays.each do |holiday, details|
+#       holiday = holiday.to_s.capitalize + ": "
+#       holiday << details.to_s
+#       decorations << holiday
+#      end
+#   end
+#   puts decorations.flatten
+# end
 
-  holiday_hash.each do |season, holidays| #<<
-     holidays.each do |holiday|
-      decorations << holiday
-      binding.pry
-     end
+def all_supplies_in_holidays(holiday_hash)
+  holiday_hash.each do |season, season_holidays|
+    puts "#{season.to_s.capitalize}:"
+
+    season_holidays.each do |holiday, decorations|
+      holiday_string = holiday.to_s
+
+      puts "  #{holiday_string.split("_").map {|el| el.capitalize}.join(" ")}: #{decorations.join(", ")}"
+    end
   end
-  decorations.flatten
 end
 
 def all_holidays_with_bbq(holiday_hash)
   # return an array of holiday names (as symbols) where supply lists
   # include the string "BBQ"
+  bbqs = []
 
+  holiday_hash.each do |season, season_holidays|
+    season_holidays.each do |holiday, decorations|
+      if decorations.include?("BBQ")
+        bbqs << holiday
+      end
+    end
+  end
+  bbqs
 end
 
-holiday_hash = {
-  :winter => {
-    :christmas => ["Lights", "Wreath"],
-    :new_years => ["Party Hats"]
-  },
-  :summer => {
-    :fourth_of_july => ["Fireworks", "BBQ"]
-  },
-  :fall => {
-    :thanksgiving => ["Turkey"]
-  },
-  :spring => {
-    :memorial_day => ["BBQ"]
-  }
-}
-
-all_supplies_in_holidays(holiday_hash)
+# holiday_hash = {
+#   :winter => {
+#     :christmas => ["Lights", "Wreath"],
+#     :new_years => ["Party Hats"]
+#   },
+#   :summer => {
+#     :fourth_of_july => ["Fireworks", "BBQ"]
+#   },
+#   :fall => {
+#     :thanksgiving => ["Turkey"]
+#   },
+#   :spring => {
+#     :memorial_day => ["BBQ"]
+#   }
+# }
+#
+# all_supplies_in_holidays(holiday_hash)
