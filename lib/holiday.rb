@@ -53,14 +53,18 @@ def all_winter_holiday_supplies(holiday_hash)
 end
 
 def all_supplies_in_holidays(holiday_hash)
-    binding.pry
-    seasons = []
-    holiday_hash.keys.each do |season_symbol|
-      seasons << season_symbol.to_s.capitalize!
+    holiday_hash.each do |season, data|
+      puts "#{season.to_s.capitalize!}:"
+      data.each do |holiday, items|
+        holiday.to_s.split("_").each do |day|
+          if day.is_a?(String)
+            puts "  #{day.capitalize!}: #{items.join(", ")}"
+          else
+            puts "  #{day.capitalize!.join}: #{items.join(", ")}"
+          end
+        end
+      end
     end
-    seasons
-
-    
 
 
 end
