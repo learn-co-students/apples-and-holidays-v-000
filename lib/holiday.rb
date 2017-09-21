@@ -18,6 +18,7 @@ def second_supply_for_fourth_of_july(holiday_hash)
   #   }
   # }
   # return the second element in the 4th of July array
+  holiday_hash[:summer][:fourth_of_july][1]
 end
 
 def add_supply_to_winter_holidays(holiday_hash, supply)
@@ -68,23 +69,19 @@ end
   #   Fourth Of July: Fireworks, BBQ
   # etc.
 def all_supplies_in_holidays(holiday_hash)
+  #season_string = ""
+  #holiday_string = ""
+  #supplies_string = ""
   holiday_hash.each do | season, holiday_collection |
       #capitalizing and putting season
     season_string = season.to_s.capitalize + ":"
     puts season_string
     holiday_collection.each do | holiday, supplies_already_there |
         #capitalizing and putting holiday
-      holiday_string = holiday.to_s.sub("_", " ").split.each { |x| x.capitalize!}.join(" ") + ":"
-              binding.pry
-      puts holiday_string
-
-      supplies_already_there.each do |x|
-
-      end
-
-      #holiday.each do | x |
-      #  holiday_step_one = x.to_s.split
-      #holiday_string = holiday.to_s.capitalize!
+      holiday_string = "  " + holiday.to_s.sub("_", " ").split.each { |x| x.capitalize!}.join(" ") + ": "
+      supplies_string = supplies_already_there.join(", ")
+      #binding.pry
+      puts holiday_string + supplies_string
     end
   end
 end
