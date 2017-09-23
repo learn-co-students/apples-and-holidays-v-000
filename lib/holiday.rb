@@ -18,7 +18,7 @@ def second_supply_for_fourth_of_july(holiday_hash)
   #     :memorial_day => ["BBQ"]
   #   }
   # }
-  # return the second element in the 4th of July array
+#   return the second element in the 4th of July array
 end
 
 def add_supply_to_winter_holidays(holiday_hash, supply)
@@ -45,21 +45,51 @@ end
 # I don't understand why this isn't instead: [:season][:holiday_name]
 def all_winter_holiday_supplies(holiday_hash)
   # return an array of all of the supplies that are used in the winter season
-  holiday_hash[:winter].values.flatten
+  holiday_supplies[:winter].values.flatten
 end
 
 def all_supplies_in_holidays(holiday_hash)
-  holiday_hash.each do |season, supplies|
-    puts season.to_s.capitalize! + ":"
-    supplies.each do |holiday, value|
-    puts holiday.to_s.capitalize! + ":" + " " + value.join(", ")
-    end
-    holiday_hash
+      holiday_hash.each do |season, holiday| # iterates through array
+       puts "#{season.to_s.capitalize}:" # capitalizes season
+        holiday.each do |holiday, supplies|
+          holiday_name = holiday.to_s.split("_")
+          holiday_name.each do |word| word.capitalize!
+          end
+          puts "  " + holiday_name.join(" ") + ": " + supplies.join(", ")
+        end
+      end
   end
-end
+
+# Season:
+#   Holiday: Supplies, supplies
+
+#   holiday_supplies.each do |season, holiday|
+#     puts "#{season.capitalize}:"
+#     # binding.pry
+#     holiday.each do |holiday, supplies|
+#     holiday_array = holiday.to_s.split(_)
+#     holiday_array.each do
+#     |w| w.capitalize!
+#     new_array = holiday-array.join(" ")
+#     puts "  #{holiday_array}" + ": " + "#{supplies.join(, )}"
+#     #{supplies.join(", ") }"
+#     end
+#
+#   end
+# end
+# new_array
+# end
 
 def all_holidays_with_bbq(holiday_hash)
+  array = []
+  holiday_hash.each do |season, holidays|
+    holidays.each do |holiday, supplies|
+      array << holiday if supplies.include?("BBQ")
+      end
+    end
+
+  array
+end
+
   # return an array of holiday names (as symbols) where supply lists
   # include the string "BBQ"
-
-end
