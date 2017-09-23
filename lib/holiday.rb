@@ -60,25 +60,6 @@ def all_supplies_in_holidays(holiday_hash)
       end
   end
 
-# Season:
-#   Holiday: Supplies, supplies
-
-#   holiday_supplies.each do |season, holiday|
-#     puts "#{season.capitalize}:"
-#     # binding.pry
-#     holiday.each do |holiday, supplies|
-#     holiday_array = holiday.to_s.split(_)
-#     holiday_array.each do
-#     |w| w.capitalize!
-#     new_array = holiday-array.join(" ")
-#     puts "  #{holiday_array}" + ": " + "#{supplies.join(, )}"
-#     #{supplies.join(", ") }"
-#     end
-#
-#   end
-# end
-# new_array
-# end
 
 def all_holidays_with_bbq(holiday_hash)
   array = []
