@@ -44,20 +44,18 @@ def all_winter_holiday_supplies(holiday_hash)
 end
 
 def all_supplies_in_holidays(holiday_hash)
-  holiday_hash.collect do |season|
-    season.collect do |holiday|
-      holiday.collect do |supply_array|
+  holiday_hash.collect do |season, holiday|
+    season.collect do |holiday, supply_array|
         holiday.to_s.split.capitalize!.join supply_array
-      end
     end
   end
 end
 
 def all_holidays_with_bbq(holiday_hash)
-  holiday_hash.each do |season, holiday|
-    season.each do |holiday, supply_array|
-      holiday.select do |supply_array|
-        supply_array.include?("BBQ")
+  holiday_hash.collect do |season, holiday|
+    holiday.select do |holiday, supply_array|
+      if supply_array.include?("BBQ")
+        holiday
       end
     end
   end
