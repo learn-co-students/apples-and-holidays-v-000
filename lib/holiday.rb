@@ -45,17 +45,18 @@ end
 
 def all_supplies_in_holidays(holiday_hash)
   holiday_hash.collect do |season, holiday_supplies|
+    puts "#{season.capitalize}:"
     holiday_supplies.collect do |holiday, supply_array|
       if holiday == :new_years || holiday == :fourth_of_july || holiday == :memorial_day
-        new_holiday = holiday.to_s.gsub(/_/, " ").split
+        new_holiday = holiday.to_s.gsub( "_", " ").split
         new_holiday.each do |word|
           word.capitalize!
         end
+        new_holiday = new_holiday.join(" ")
       else
         new_holiday = holiday.capitalize
       end
-      puts "#{season.capitalize}:"
-      puts "  #{new_holiday}: #{supply_array.join(", ")}"
+        puts "  #{new_holiday}: #{supply_array.join(", ")}"
     end
   end
 end
