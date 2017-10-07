@@ -60,18 +60,7 @@ def all_supplies_in_holidays(holiday_hash)
   holiday_hash.each do |season, second_hash|
     puts "#{season.capitalize}:"
     second_hash.each do |holiday, supply_array|
-      if holiday == :new_years
-        holiday = "New Years"
-      elsif holiday == :fourth_of_july
-        holiday = "Fourth Of July"
-      elsif holiday == :memorial_day
-        holiday = "Memorial Day"
-      elsif holiday == :christmas
-        holiday = "Christmas"
-      else
-        holiday = "Thanksgiving"
-      end
-      puts "  #{holiday}: #{supply_array.join(", ")}"
+      puts "  #{holiday.to_s.split('_').map {|word| word.capitalize }.join(' ')}: #{supply_array.join(", ")}"
     end
   end
 end
