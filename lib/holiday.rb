@@ -20,5 +20,13 @@ def second_supply_for_fourth_of_july(holiday_supplies)
 end
 
 def add_supply_to_winter_holidays(holiday_supplies)
-  holiday_supplies[:winter][:christmas, :new_years] = "supply"
+  holiday_supplies.each do |season, holiday|
+    if season == winter
+      holiday << "supply"
+    end
+  end
 end
+
+# def add_supply_to_winter_holidays(holiday_supplies)
+#   holiday_supplies[:winter][:christmas][:new_years] = "supply"
+# end
