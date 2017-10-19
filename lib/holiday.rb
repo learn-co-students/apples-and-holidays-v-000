@@ -38,7 +38,7 @@ def all_winter_holiday_supplies(holiday_supplies)
 end
 
 def all_supplies_in_holidays(holiday_supplies)
-  holiday_supplies.each do |season, holiday, supply|
+  holiday_supplies.each do |season, holiday| season.to_s holiday.to_s season.capitalize! holiday.split.capitalize! holiday.join
     puts "#{season}:"
     puts "     #{holiday}: #{supply}"
   end
