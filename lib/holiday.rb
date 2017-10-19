@@ -42,5 +42,5 @@ def add_new_holiday_with_supplies(holiday_supplies, season, holiday, supplies_fo
 end
 
 def all_winter_holiday_supplies(holiday_supplies)
-  holiday_supplies[:winter].flatten
+  holiday_supplies.winter.flatten
 end
