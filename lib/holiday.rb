@@ -36,3 +36,10 @@ end
 def all_winter_holiday_supplies(holiday_supplies)
   holiday_supplies[:winter].collect {|holiday, supply| supply}.flatten
 end
+
+def all_supplies_in_holidays(holiday_supplies)
+  holiday_supplies.each do |season, holiday, supply|
+    puts "#{season}:"
+    puts "     #{holiday}: #{supply}"
+  end
+end
