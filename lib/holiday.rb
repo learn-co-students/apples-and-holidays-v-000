@@ -43,7 +43,11 @@ def all_supplies_in_holidays(holiday_supplies)
   holiday_supplies.each do |season, holiday_hash|
     puts "#{season.capitalize}:"
     holiday_hash.each do |holiday, supplies|
-      puts "#{holiday.to_s.split("_").collect {|h| h.capitalize}.join(" ")}: #{supplies.collect {|s|}}"
+      puts "  #{holiday.to_s.split("_").collect {|h| h.capitalize}.join(" ")}: #{supplies.join(", ")}" #I tabbed thist o indent!
     end
   end
+end
+
+def all_holidays_with_bbq(holiday_supplies)
+
 end
