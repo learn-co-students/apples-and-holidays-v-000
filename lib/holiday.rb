@@ -1,3 +1,5 @@
+
+
 # holiday_supplies = {
 #   :winter => {
 #     :christmas => ["Lights", "Wreath"],
@@ -38,8 +40,10 @@ def all_winter_holiday_supplies(holiday_supplies)
 end
 
 def all_supplies_in_holidays(holiday_supplies)
-  holiday_supplies.each do |season, holiday| season.to_s holiday.to_s season.capitalize! holiday.split.capitalize! holiday.join
-    puts "#{season}:"
-    puts "     #{holiday}: #{supply}"
+  holiday_supplies.each do |season, holiday_hash|
+    puts "#{season.capitalize}:"
+    holiday_hash.each do |holiday, supplies|
+      puts "#{holiday.to_s.split("_").collect {|h| h.capitalize}.join(" ")}: #{supplies}"
+    end
   end
 end
