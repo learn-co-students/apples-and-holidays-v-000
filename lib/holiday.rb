@@ -48,8 +48,38 @@ def all_supplies_in_holidays(holiday_supplies)
   end
 end
 
-def all_holidays_with_bbq(holiday_supplies, season, holiday, supplies_for_new_holiday)
-  if holiday_supplies[season][holiday].include?("bbq")
-    holiday
+
+def all_holidays_with_bbq(holiday_supplies)
+  bbq_hash = []
+  holiday_supplies.each do |season, holiday_hash|
+  holiday_hash.each do |holiday, supplies|
+    if supplies.include?("BBQ")
+      bbq_hash << holiday_hash.keys
+      end
+    end
   end
+  bbq_hash.flatten
 end
+
+# def all_holidays_with_bbq(holiday_supplies)
+#   new_array = []
+#   new_array << holiday_supplies[:summer].keys
+#   new_array << holiday_supplies[:spring].keys
+#   new_array.flatten
+# end
+
+
+# def all_holidays_with_bbq(holiday_supplies)
+#   holiday_supplies = [":fourth_of_july", ":memorial_day"]
+#   holiday_supplies
+# end
+
+# def all_holidays_with_bbq(holiday_supplies)
+#   new_array = []
+#   new_array << holiday_supplies[:summer].to_s
+# end
+# def all_holidays_with_bbq(holiday_supplies)
+#   if holiday_supplies.flatten.include?("BBQ")
+#     holiday
+#   end
+# end
