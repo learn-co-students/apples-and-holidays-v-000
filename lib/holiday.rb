@@ -48,6 +48,8 @@ def all_supplies_in_holidays(holiday_supplies)
   end
 end
 
-def all_holidays_with_bbq(holiday_supplies)
-
+def all_holidays_with_bbq(holiday_supplies, season, holiday, supplies_for_new_holiday)
+  if holiday_supplies[season][holiday].include?("bbq")
+    holiday
+  end
 end
