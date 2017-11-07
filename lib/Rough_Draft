@@ -1,0 +1,61 @@
+def all_supplies_in_holidays(holiday_hash)
+
+  final_upcase = []
+
+  ## Seasons capitalize + holidays into arrays and collected in holiday_collection
+
+  holiday_hash.each do |seasons, holidays|
+    final_upcase << seasons.to_s << ": "
+    holidays.each do |holiday, supplies|
+      string = holiday.to_s.split("_")
+      final_upcase << string.join(" ")
+    end
+  end
+  final = final_upcase.join(" ")
+  puts final.split(" ") << ":" #need to figure out how to drop down a line without an indent
+end
+
+---
+
+puts:
+
+winter
+:
+christmas
+new
+years
+summer
+:
+fourth
+of
+july
+fall
+:
+thanksgiving
+spring
+:
+memorial
+day
+:
+
+---
+
+New
+---
+
+def all_supplies_in_holidays(holiday_hash)
+
+  final_upcase = []
+
+  holiday_hash.each do |seasons, holidays|
+    final_upcase << seasons.to_s + ":"
+    holidays.each do |holiday, supplies|
+      final_upcase << holiday.to_s.split("_")
+    end
+  end
+  print final_upcase
+end
+
+puts:
+
+final_upcase = ["winter:", ["christmas"], ["new", "years"], "summer:", ["fourth", "of", "july"], "fall:", ["thanksgiving"], "spring:", ["memorial", "day"]]
