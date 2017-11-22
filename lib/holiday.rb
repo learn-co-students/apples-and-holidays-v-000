@@ -39,3 +39,36 @@ end
 def all_holidays_with_bbq(holiday_hash)
   holiday_hash.values.map{ |hash| hash.keys if hash.values.flatten.include?("BBQ") }.flatten.reject(&:nil?)
 end
+
+#BONUS PROBLEM: SORT EVERYTHING ALBABETICALLY
+#NO TESTS. HOW CAN WE RUN THIS AND 'TEST' THIS TO SEE OUR RESULTS?
+
+holiday_supplies =
+  {
+    :winter => {
+      :new_years => ["Party Hats"],
+      :christmas => ["Wreath", "Lights"],
+      :mlk_day => ["Good Will"]
+    },
+    :summer => {
+      :labor_day => ["Grill", "Burgers"],
+      :fourth_of_july => ["Fireworks", "BBQ"]
+    },
+    :fall => {
+      :my_birthday => ["the", "of", "things", "all"],
+      :thanksgiving => ["Turkey"]
+    },
+    :spring => {
+      :memorial_day => ["BBQ"]
+    }
+  }
+
+def alphabetical_sort(holiday_hash)
+  holiday_hash.each do |season, holidays|
+    holiday_hash[season] = (holidays.sort.to_h if holidays.length > 1) || holidays
+    holiday_hash[season].each{|h,s| h = s.sort! if s.length > 1}
+  end
+  holiday_hash.sort.to_h
+end
+
+puts alphabetical_sort(holiday_supplies)
