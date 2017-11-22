@@ -65,9 +65,12 @@ holiday_supplies =
 
 def alphabetical_sort(holiday_hash)
   holiday_hash.each do |season, holidays|
+    #sort holidays
     holiday_hash[season] = (holidays.sort.to_h if holidays.length > 1) || holidays
+    #sort supplies
     holiday_hash[season].each{|h,s| h = s.sort! if s.length > 1}
   end
+  #sort seasons
   holiday_hash.sort.to_h
 end
 
