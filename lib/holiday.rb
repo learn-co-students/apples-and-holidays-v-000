@@ -5,17 +5,10 @@ def second_supply_for_fourth_of_july(holiday_hash)
 end
 
 def add_supply_to_winter_holidays(holiday_hash, supply)
-  puts "
-  Winter:
-    Christmas: Lights, Wreath
-    New Years: Party Hats
-  Summer:
-    Fourth Of July: Fireworks, BBQ
-  Fall:
-    Thanksgiving: Turkey
-  Spring:
-    Memorial Day: BBQ
-  "
+  holiday_hash[:winter].each do |holiday, supplies|
+    supplies.push(supply)
+  end
+  holiday_hash
 end
 
 
@@ -40,21 +33,18 @@ def all_winter_holiday_supplies(holiday_hash)
 end
 
 def all_supplies_in_holidays(holiday_hash)
-  holiday_hash.map do |season, holiday|
-    holiday = holiday.to_s
-    season = season.to_s
-    season = season.capitalize!
-    if holiday.include?("_")
-      holiday = holiday.split("_")
-      holiday.each {|word| word.capitalize!}
-      holiday = holiday.join(" ")
-    else
-      holiday.capitalize!
+  holiday_supplies.each do |season, holidays|
+    puts "#{season.capitalize}:"
+    holidays.each do |holiday, supplies|
+      puts"  #{holiday.to_s.split('_').map {|w| w.capitalize }.join(' ') }: #{supplies.join(", ")}"
     end
   end
-
 end
 
 def all_holidays_with_bbq(holiday_hash)
-
+  holiday_hash.map do |season, holidays|
+    holidays.map do |holiday, supplies|
+      holiday if supplies.include?("BBQ")
+    end
+  end.flatten.compact
 end
