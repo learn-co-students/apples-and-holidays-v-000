@@ -54,6 +54,12 @@ def all_winter_holiday_supplies(holiday_hash)
   winter_supply_array
 end
 
+def all_winter_holiday_supplies(holiday_hash) # use .map!
+  holiday_supplies[:winter].map do |holiday, supplies|
+    supplies
+  end.flatten
+end
+
 def all_supplies_in_holidays(holiday_hash)
   # iterate through holiday_hash and print items such that your readout resembles:
   # Winter:
@@ -82,4 +88,12 @@ def all_holidays_with_bbq(holiday_hash)
     end
   end
   bbq_array
+end
+
+def all_holidays_with_bbq(holiday_hash)  # use .map!
+  holiday_hash.map do |season, holidays|
+    holidays.map do |holiday, supplies|
+      holiday if supplies.include?("BBQ")
+    end
+  end.flatten.compact
 end
