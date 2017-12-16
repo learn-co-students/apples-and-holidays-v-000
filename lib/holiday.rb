@@ -58,11 +58,13 @@ def add_new_holiday_with_supplies(holiday_hash, season, holiday_name, supply_arr
   # code here
   # remember to return the updated hash
   #puts "#{season}, #{holiday_name}, #{supply_array}"
-  holiday_hash.each do |holiday_hash_season, holiday|
-    if holiday_hash_season == season
-      holiday.store(holiday_name, supply_array)
-    end
-  end
+  #holiday_hash.each do |holiday_hash_season, holiday|
+    #if holiday_hash_season == season
+      #holiday.store(holiday_name, supply_array)
+  #  end
+  #end
+  #holiday_hash
+  holiday_hash[season][holiday_name] = supply_array
   holiday_hash
 end
 
@@ -79,18 +81,24 @@ def all_supplies_in_holidays(holiday_hash)
   # Summer:
   #   Fourth Of July: Fireworks, BBQ
   # etc.
-  holiday_hash.each do |season, holiday|
-    puts "#{season.to_s.capitalize!}:"
-    holiday.each do |day, items|
-      if day.to_s.include?('_')
-        new_day = day.to_s.split('_')
-        new_day.collect do |x|
-          x.capitalize!
-        end
-        puts "  #{new_day.join(' ')}: #{items.join(", ")}"
-      else
-        puts "  #{day.to_s.capitalize}: #{items.join(", ")}"
-      end
+  #holiday_hash.each do |season, holiday|
+    #puts "#{season.to_s.capitalize!}:"
+    #holiday.each do |day, items|
+      #if day.to_s.include?('_')
+        #new_day = day.to_s.split('_')
+        #new_day.collect do |x|
+          #x.capitalize!
+        #end
+        #puts "  #{new_day.join(' ')}: #{items.join(", ")}"
+      #else
+        #puts "  #{day.to_s.capitalize}: #{items.join(", ")}"
+      #end
+    #end
+  #end
+  holiday_hash.each do |season, holidays|
+    puts "#{season.capitalize}:"
+    holidays.each do |holiday, items|
+      puts "  #{holiday.to_s.split('_').map {|w| w.capitalize}.join(' ')}: #{items.join(", ")}"
     end
   end
 end
@@ -98,13 +106,18 @@ end
 def all_holidays_with_bbq(holiday_hash)
   # return an array of holiday names (as symbols) where supply lists
   # include the string "BBQ"
-  holidays = []
-  holiday_hash.each do |season, holiday|
-    holiday.each do |day, items|
-      if items.include?('BBQ')
-        holidays.push(day)
-      end
+  #holidays = []
+  #holiday_hash.each do |season, holiday|
+    #holiday.each do |day, items|
+      #if items.include?('BBQ')
+        #holidays.push(day)
+      #end
+    #end
+  #end
+  #holidays
+  holiday_hash.map do |season, holidays|
+    holidays.map do |holiday, items|
+      holiday if items.include?("BBQ")
     end
-  end
-  holidays
+  end.flatten.compact
 end
