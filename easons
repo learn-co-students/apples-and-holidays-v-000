@@ -1,0 +1,29 @@
+
+[1mFrom:[0m /home/samrey2018-120854/code/labs/apples-and-holidays-v-000/lib/holiday.rb @ line 72 Object#all_supplies_in_holidays:
+
+    [1;34m63[0m: [32mdef[0m [1;34mall_supplies_in_holidays[0m(holiday_hash)
+    [1;34m64[0m:   [1;34m# iterate through holiday_hash and print items such that your readout resembles:[0m
+    [1;34m65[0m:   [1;34m# Winter:[0m
+    [1;34m66[0m:   [1;34m#   Christmas: Lights, Wreath[0m
+    [1;34m67[0m:   [1;34m#   New Years: Party Hats[0m
+    [1;34m68[0m:   [1;34m# Summer:[0m
+    [1;34m69[0m:   [1;34m#   Fourth Of July: Fireworks, BBQ[0m
+    [1;34m70[0m:   [1;34m# etc.[0m
+    [1;34m71[0m:    holiday_hash.each [32mdo[0m |seasons, holidays|
+ => [1;34m72[0m:      binding.pry
+    [1;34m73[0m:      [1;34m# What ever we put in the pipes dictates whwat we call the keys and the value.[0m
+    [1;34m74[0m:      [1;34m# we need to pass in the ":" to get the attachment in.[0m
+    [1;34m75[0m:      puts seasons.to_s.capitalize + [31m[1;31m"[0m[31m:[1;31m"[0m[31m[0m
+    [1;34m76[0m:       [1;34m# .to_s means turn to string.[0m
+    [1;34m77[0m:       holidays.each [32mdo[0m |holiday, value|
+    [1;34m78[0m:         [1;34m# binding.pry[0m
+    [1;34m79[0m:         [1;34m# puts "  " + holiday.to_s.split(holiday.to_s).map {}.capitalize. + ": " + value.join(", ")[0m
+    [1;34m80[0m:   [1;34m# use .split  in here ^^^^^[0m
+    [1;34m81[0m:   [1;34m# .Turn hoilday into a string,  # .split string at eh under score. ,[0m
+    [1;34m82[0m:   [1;34m# They Used .map to capitalize at spilt command.[0m
+    [1;34m83[0m:   [1;34m#gsub   >>>> https://apidock.com/ruby/String/gsub[0m
+    [1;34m84[0m: 
+    [1;34m85[0m:     [32mend[0m
+    [1;34m86[0m:    [32mend[0m
+    [1;34m87[0m: [32mend[0m
+
