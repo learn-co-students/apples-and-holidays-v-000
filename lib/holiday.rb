@@ -80,9 +80,9 @@ def all_supplies_in_holidays(holiday_hash)
   #   Fourth Of July: Fireworks, BBQ
   # etc.
   holiday_hash.each do |season, data|
-    puts "#{season.to_s.capitalize}:"
+    puts "#{season.to_s.capitalize}:"  #we don't need the .to_s because .capitalize will convert the symbol to a string automatically
       data.each do |holiday, supplies|
-        puts "  #{holiday.to_s.split("_").map(&:capitalize).join(" ")}: #{supplies.join(", ")}"
+        puts "  #{holiday.to_s.split("_").map(&:capitalize).join(" ")}: #{supplies.join(", ")}" #we don't need the .to_s because .capitalize will convert the symbol to a string automatically
       end
   end
 end
