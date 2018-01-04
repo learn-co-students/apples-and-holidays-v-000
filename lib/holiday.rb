@@ -86,6 +86,7 @@ def all_supplies_in_holidays(holiday_hash)
       end
   end
 end
+#an alternative to (&:capitalize) is ..".map {|w| w.capitalize }"
 
 def all_holidays_with_bbq(holiday_hash)
   # return an array of holiday names (as symbols) where supply lists
