@@ -125,7 +125,6 @@ TEXT
     # of holiday supplies line by line. If, on the other hand, you decided to output it
     # as one big chunk, comment out this test, and uncomment the one below it.
 
-    elements.each("//XPath") do |node|
     xit "should output the formatted list of holidays and their supplies" do
       @output.each_line do |line|
         expect($stdout).to receive(:puts).with(line.chomp)
