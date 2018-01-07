@@ -57,9 +57,9 @@ end
 def all_winter_holiday_supplies(holiday_hash)
   supply = []
   # return an array of all of the supplies that are used in the winter season
-  holiday_hash[:winter].each do |holiday, supplies|
-   supply << supplies
- end
+  #holiday_hash[:winter].each do |holiday, supplies|
+   #supply << supplies
+   holiday_hash[:winter].values.flatten
 
 # puts holiday_supplies
 end
@@ -75,7 +75,10 @@ def all_supplies_in_holidays(holiday_hash)
   # etc.
 
    holiday_hash.each do |key, data| puts "#{key.capitalize}:"
-     data.each do |attribute, value|  puts "  #{attribute.capitalize}: #{value * ", "}"
+     data.each do |attribute, value|
+      puts   "  #{attribute.to_s.split("_").collect  { |w|  w.capitalize}.join(" ")}: #{value.join(", ")}"
+
+          #    {w.capitalize}: #{value * ", "}}"
     end
   end
 end
@@ -87,10 +90,13 @@ def all_holidays_with_bbq(holiday_hash)
   holiday_hash.each do |key, data|
     data.each do |attribute, value|
       value.each do |bbq| if bbq ==   "BBQ"
-         array_bbq  << ":#{attribute}"
+         array_bbq  << attribute
        end
        end
      end
    end
+   array_bbq
+
+
 end
-#all_holidays_with_bbq(holiday_hash)
+all_holidays_with_bbq(holiday_hash)
