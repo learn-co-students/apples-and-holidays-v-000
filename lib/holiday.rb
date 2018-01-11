@@ -25,6 +25,8 @@ def add_supply_to_winter_holidays(holiday_hash, supply)
   # holiday_hash is identical to the one above
   # add the second argument, which is a supply, to BOTH the
   # Christmas AND the New Year's arrays
+    holiday_hash[:winter][:christmas] << supply
+    holiday_hash[:winter][:new_years] << supply
 
 end
 
@@ -32,17 +34,29 @@ end
 def add_supply_to_memorial_day(holiday_hash, supply)
   # again, holiday_hash is the same as the ones above
   # add the second argument to the memorial day array
+    holiday_hash[:spring][:memorial_day] << supply
 
 end
 
 def add_new_holiday_with_supplies(holiday_hash, season, holiday_name, supply_array)
   # code here
   # remember to return the updated hash
-
+    holiday_hash[:"#{season}"][:"#{holiday_name}"] = supply_array
 end
 
 def all_winter_holiday_supplies(holiday_hash)
   # return an array of all of the supplies that are used in the winter season
+    supplies = []
+    holiday_hash.each do |season, holiday|
+        if season.to_s == "winter"
+            holiday.each do |att, value|
+                value.each do |supply|
+                    supplies << supply
+                end
+            end
+        end
+    end
+    supplies
 
 end
 
@@ -54,12 +68,36 @@ def all_supplies_in_holidays(holiday_hash)
   # Summer:
   #   Fourth Of July: Fireworks, BBQ
   # etc.
+    holiday_hash.each do |season, holiday|
+        puts "#{season.capitalize}:"
+        holiday.each do |att, value|
+            att = att.to_s.capitalize
+            if att.include?("w_y")
+                att = "New Years"
+            elsif att.include?("h_of_j")
+                att = "Fourth Of July"
+            elsif att.include?("l_d")
+                att = "Memorial Day"
+            end
+            puts "  #{att}: #{value.join(", ")}"
+        end
+    end
 
 end
 
 def all_holidays_with_bbq(holiday_hash)
   # return an array of holiday names (as symbols) where supply lists
   # include the string "BBQ"
+    answer = []
+    holiday_hash.each do |season, holiday|
+        holiday.each do |att, value|
+            if value.include?("BBQ")
+                answer << att
+            end
+        end
+    end
+    answer
+            
 
 end
 
