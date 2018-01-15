@@ -18,6 +18,10 @@ describe "holiday_supplies_hash" do
     }
   }
 
+
+
+
+
  # Question 1
  # Write a method that returns the second supply for the Fourth of July
   describe "#second_supply_for_fourth_of_july" do
@@ -125,18 +129,18 @@ TEXT
     # of holiday supplies line by line. If, on the other hand, you decided to output it
     # as one big chunk, comment out this test, and uncomment the one below it.
 
+  #  it "should output the formatted list of holidays and their supplies" do
+  #    @output.each_line do |line|
+  #      expect($stdout).to receive(:puts).with(line.chomp)
+  #    end
+
+  #    all_supplies_in_holidays(holiday_supplies)
+  #  end
+
     it "should output the formatted list of holidays and their supplies" do
-      @output.each_line do |line|
-        expect($stdout).to receive(:puts).with(line.chomp)
-      end
-
-      all_supplies_in_holidays(holiday_supplies)
-    end
-
-    # it "should output the formatted list of holidays and their supplies" do
-    #   expect($stdout).to receive(:puts).with(@output)
-    #   all_supplies_in_holidays(holiday_supplies)
-    # end
+      expect($stdout).to receive(:puts).with(@output)
+       all_supplies_in_holidays(holiday_supplies)
+     end
 
   end
 
