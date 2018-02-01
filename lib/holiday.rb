@@ -56,12 +56,11 @@ end
 
 def all_winter_holiday_supplies(holiday_hash)
   # return an array of all of the supplies that are used in the winter season
-  winter_supplies=[]
-  holiday_hash[:winter].each do | holiday, supply|
-    winter_supplies<< supply
-
+  supplies =[]
+  holiday_hash[:winter].map do | holiday, supply|
+    supplies << supply
   end
-  winter_supplies.flatten
+  supplies.flatten
 end
 
 def all_supplies_in_holidays(holiday_hash)
@@ -75,7 +74,7 @@ def all_supplies_in_holidays(holiday_hash)
   holiday_hash.collect do |season, holiday|
     puts "#{season.to_s.capitalize}:"
     holiday.collect do |holiday, supply|
-      puts "  #{holiday.to_s.split("_").map(&:capitalize).join(" ")}: #{supply.join(", ")}"
+      puts "  #{holiday.to_s.split("_").map {|w| w.capitalize}.join(" ")}: #{supply.join(", ")}"
     end
   end
 end
