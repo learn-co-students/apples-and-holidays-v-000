@@ -40,15 +40,12 @@ end
 def add_new_holiday_with_supplies(holiday_hash, season, holiday_name, supply_array)
   # code here
   # remember to return the updated hash
-  holiday_hash[season][holiday_name] = supply_array
-  holiday_hash
+  holiday_hash[season] = {holiday_name => supply_array}
 end
 
 def all_winter_holiday_supplies(holiday_hash)
   # return an array of all of the supplies that are used in the winter season
-  holiday_hash[:winter].collect do |holiday, supplies|
-    supplies
-  end
+  holiday_hash[:winter].collect {|holiday, supplies| supplies}
   .flatten
 end
 
@@ -60,26 +57,25 @@ def all_supplies_in_holidays(holiday_hash)
   # Summer:
   #   Fourth Of July: Fireworks, BBQ
   # etc.
-  holiday_hash.each do |season, holiday|
-    puts "#{season.capitalize}:"
-    holiday.each do |holiday_name, supplies|
-      puts "  #{holiday_name.to_s.split("_").collect do |x|
-        x.capitalize
-      end
-      .join(" ")}: #{supplies.join(", ")}"
+  holiday_hash.each do |season, hol_sup|
+    puts "#{season.to_s.capitalize}:"
+    hol_sup.each do |holiday, supplies|
+      puts "  #{holiday.to_s.split("_").collect {|x| x.capitalize}.join(" ")}: #{supplies.join(", ")}"
     end
   end
+
 end
 
 def all_holidays_with_bbq(holiday_hash)
   # return an array of holiday names (as symbols) where supply lists
   # include the string "BBQ"
-  holiday_hash.collect do |season, holidays|
-    holidays.collect do |holiday, supplies|
-      holiday if supplies.include?("BBQ")
+   array = []
+   holiday_hash.each do |season, hol_sup|
+     hol_sup.each do |holiday, supplies|
+       if supplies.include?("BBQ")
+         array << holiday
+       end
+     end
     end
-  end
-  .flatten.delete_if do |holiday_name|
-    holiday_name == nil
-  end 
+  array
 end
