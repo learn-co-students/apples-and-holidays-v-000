@@ -39,11 +39,18 @@ holiday_hash[season][holiday_name] = supply_array
 end
 
 def all_winter_holiday_supplies(holiday_hash)
+<<<<<<< HEAD
   winter_supplies = []
   holiday_hash[:winter].each do |holiday, decoration|
     winter_supplies << decoration
   end
   winter_supplies.join(",")
+=======
+  holiday_hash[:winter].collect do |holiday, decoration|
+    holiday[decoration]
+    end 
+  end 
+>>>>>>> c5734acad74ad979e4a34a7dfdaee2b34233194d
 end
 
 def all_supplies_in_holidays(holiday_hash)
@@ -63,8 +70,16 @@ def all_supplies_in_holidays(holiday_hash)
 
 end
 
+<<<<<<< HEAD
 # def all_holidays_with_bbq(holiday_hash)
 #   # return an array of holiday names (as symbols) where supply lists
 #   # include the string "BBQ"
 #
 # end
+=======
+def all_holidays_with_bbq(holiday_hash)
+  # return an array of holiday names (as symbols) where supply lists
+  # include the string "BBQ"
+
+end
+>>>>>>> c5734acad74ad979e4a34a7dfdaee2b34233194d
