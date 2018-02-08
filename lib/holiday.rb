@@ -39,47 +39,50 @@ holiday_hash[season][holiday_name] = supply_array
 end
 
 def all_winter_holiday_supplies(holiday_hash)
-<<<<<<< HEAD
   winter_supplies = []
   holiday_hash[:winter].each do |holiday, decoration|
     winter_supplies << decoration
   end
   winter_supplies.join(",")
-=======
-  holiday_hash[:winter].collect do |holiday, decoration|
-    holiday[decoration]
-    end 
-  end 
->>>>>>> c5734acad74ad979e4a34a7dfdaee2b34233194d
 end
+
+# def all_supplies_in_holidays(holiday_hash)
+#   holiday_hash.each do |season, holiday|
+#   puts "#{season}:".capitalize!
+#     holiday.each do |holiday, decoration|
+#     puts "  " + "#{holiday}".gsub("_", " ").split. + ": #{decoration[0..-1].join(", ")}"
+#     end
+#   end
+# end
 
 def all_supplies_in_holidays(holiday_hash)
   holiday_hash.each do |season, holiday|
-    puts "#{season}:".capitalize
+  puts "#{season}:".capitalize!
     holiday.each do |holiday, decoration|
-    puts "  " + "#{holiday}".capitalize + ": #{decoration[0..-1].join(", ")}"
+     puts "  " + holiday.to_s.gsub("_", " ").split(" ").map {|word| word.capitalize}.join(" ") + ": #{decoration[0..-1].join(", ")}"
+    end
   end
-  end
-  # iterate through holiday_hash and print items such that your readout resembles:
-  # Winter:
-  #   Christmas: Lights, Wreath
-  #   New Years: Party Hats
-  # Summer:
-  #   Fourth Of July: Fireworks, BBQ
-  # etc.
-
 end
 
-<<<<<<< HEAD
-# def all_holidays_with_bbq(holiday_hash)
-#   # return an array of holiday names (as symbols) where supply lists
-#   # include the string "BBQ"
-#
-# end
-=======
+# iterate through holiday_hash and print items such that your readout resembles:
+# Winter:
+#   Christmas: Lights, Wreath
+#   New Years: Party Hats
+# Summer:
+#   Fourth Of July: Fireworks, BBQ
+# etc.
+
 def all_holidays_with_bbq(holiday_hash)
+  holidays_with_bbqs = []
+  holiday_hash.each do |season, holiday|
+  holiday.each do |holiday, supply|
+    if supply.include?("BBQ")
+    holidays_with_bbqs << holiday
+    end
+   end
+  end
+  holidays_with_bbqs
   # return an array of holiday names (as symbols) where supply lists
   # include the string "BBQ"
 
 end
->>>>>>> c5734acad74ad979e4a34a7dfdaee2b34233194d
