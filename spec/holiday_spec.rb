@@ -1,4 +1,4 @@
-describe "holiday_supplies_hash" do
+puts describe "holiday_supplies_hash" do
 # Hash of seasons, the holidays in them, and some items each holiday might have.
   let(:holiday_supplies) {
     {
@@ -20,7 +20,7 @@ describe "holiday_supplies_hash" do
 
  # Question 1
  # Write a method that returns the second supply for the Fourth of July
-  describe "#second_supply_for_fourth_of_july" do
+  puts describe "#second_supply_for_fourth_of_july" do
     it "returns the string 'BBQ' without hardcoding it" do
       expect(second_supply_for_fourth_of_july(holiday_supplies)).to eq("BBQ")
       holiday_supplies[:summer][:fourth_of_july][1] = "Watermelon"
@@ -30,7 +30,7 @@ describe "holiday_supplies_hash" do
 
   # Question 2
   # Write a method that adds a supply to all Winter holidays
-  describe "#add_supply_to_winter_holidays" do
+  puts describe "#add_supply_to_winter_holidays" do
     it "iterates through winter holidays adds a supply to each one" do
       add_supply_to_winter_holidays(holiday_supplies, "Balloons")
       expect(holiday_supplies[:winter][:christmas]).to include("Balloons")
@@ -40,7 +40,7 @@ describe "holiday_supplies_hash" do
 
   # Question 3
   # Write a method that adds a supply to Memorial Day
-  describe "#add_supply_to_memorial_day" do
+  puts describe "#add_supply_to_memorial_day" do
     let(:memorial_day_supplies) { holiday_supplies[:spring][:memorial_day] }
 
     it "adds a supply to memorial day" do
@@ -58,7 +58,7 @@ describe "holiday_supplies_hash" do
 
   # Question 4
   # Write a method that adds a new holiday and its associated supplies to any season
-  describe "#add_new_holiday_with_supplies" do
+  puts describe "#add_new_holiday_with_supplies" do
     it "modifies the original hash by adding supplies of a new holiday to a season" do
       expect(holiday_supplies[:fall].keys).not_to include(:columbus_day)
 
@@ -91,7 +91,7 @@ describe "holiday_supplies_hash" do
 
   # Question 6
   # Write a method that uses a loop to list out all the supplies you have for each holiday and the season
-  describe "#all_supplies_in_holidays" do
+  puts describe "#all_supplies_in_holidays" do
 
     # There are two ways we might go about outputting a big block of text. One way
     # is to iterate through everything we want output, and puts it line by line. Another
@@ -142,7 +142,7 @@ TEXT
 
   # Question 7
   # Write a method to collect all holidays with BBQ
-  describe "#all_holidays_with_bbq" do
+  puts describe "#all_holidays_with_bbq" do
     it "should return :fourth_of_july and :memorial_day" do
       expect(all_holidays_with_bbq(holiday_supplies)).to eq([:fourth_of_july, :memorial_day])
     end
