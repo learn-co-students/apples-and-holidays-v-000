@@ -1,53 +1,66 @@
 require 'pry'
 
-def second_supply_for_fourth_of_july(holiday_supplies)
-  holiday_supplies[:summer][:fourth_of_july][1]
-end
+def second_supply_for_fourth_of_july(holiday_supplies_hash)
+  holiday_supplies_hash[:summer][:fourth_of_july][1]
+end 
 
-def add_supply_to_winter_holidays(holiday_hash, supply)
-  holiday_hash[:winter].collect do |season, holiday_name_hash|
-    holiday_name_hash << supply
+def add_supply_to_winter_holidays(holiday_supplies_hash, new_item)
+  holiday_supplies_hash[:winter].each do |holiday_hash, supply_array|
+        supply_array << new_item
+  end 
+  holiday_supplies_hash
+end  
+
+    
+def all_winter_holiday_supplies(holiday_supplies_hash)
+  winter_supplies = []
+  holiday_supplies_hash[:winter].each do |holidays, supplies_array|
+    supplies_array.each do |item|
+      winter_supplies << item
+    end  
   end
+  winter_supplies
 end
 
-def add_supply_to_memorial_day(holiday_hash, supply)
- holiday_hash[:spring][:memorial_day] << supply
+def add_supply_to_memorial_day(holiday_supplies_hash, item)
+  holiday_supplies_hash[:spring][:memorial_day] << item
+  holiday_supplies_hash
 end
 
-def add_new_holiday_with_supplies(holiday_hash, season, holiday_name, supply_array)
-  holiday_hash[season][holiday_name] = supply_array
-  holiday_hash
-end
+def add_new_holiday_with_supplies(holiday_supplies_hash, season, holiday, supplies)
+  holiday_supplies_hash[season][holiday] = supplies 
+  holiday_supplies_hash
+end 
 
-def all_winter_holiday_supplies(holiday_hash)
-  winter_supplies = holiday_hash[:winter].values.flatten
-end
+    
+    
 
-def all_supplies_in_holidays(holiday_hash)
-  holiday_string = ""
-  holiday_hash.each do |season, holiday|
-    puts "#{season.to_s.capitalize!}:"
-    holiday.each do |holiday_name, supply_array|
-      holiday_name = holiday_name.to_s
-        if holiday_name.include?("_")
-          holiday_name = holiday_name.split("_").map(&:capitalize).join(" ")
-        else
-          holiday_name.capitalize!
-        end
-        holiday_string = "  #{holiday_name}: " + supply_array.join(", ")
-        puts holiday_string
+
+def all_supplies_in_holidays(holiday_supplies_hash)
+  holiday_supplies_hash.each do|season_hash, holiday_hash| 
+    puts "#{season_hash.to_s.capitalize!}:"
+    holiday_hash.each do |holiday, supply_array|
+      holiday = holiday.to_s.split("_").each do |holiday_word| 
+      holiday_word.capitalize!
+      end
+      puts "  #{holiday.join(" ")}: #{supply_array.join(", ")}" 
     end
-  end
-end
+  end 
+end 
 
-def all_holidays_with_bbq(holiday_hash)
-  bbq_array = []
-  holiday_hash.each do |season, holiday|
-    holiday.collect do |holiday_name, supply_array|
-        if supply_array.include?("BBQ")
-          bbq_array << holiday_name
-        end
+
+def all_holidays_with_bbq(holiday_supplies_hash)
+  has_BBQ = []
+  holiday_supplies_hash.each do |season, holiday|
+    holiday.each do |k, v| #k = holiday v= supply
+        if v.include? "BBQ"
+          has_BBQ << k
+        end  
     end
-  end
-  return bbq_array
-end
+  end 
+  has_BBQ
+end 
+
+ 
+  
+
