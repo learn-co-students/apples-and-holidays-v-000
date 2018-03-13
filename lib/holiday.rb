@@ -1,3 +1,4 @@
+require "pry"
 def second_supply_for_fourth_of_july(holiday_hash)
   # given that holiday_hash looks like this:
   # {
@@ -41,13 +42,15 @@ def all_winter_holiday_supplies(holiday_hash)
 end
 
 def all_supplies_in_holidays(holiday_hash)
- holiday_hash.each do |season, holidays, supplies|
+ holiday_hash.each do |season, holidays|
    puts "#{season.capitalize}:"
    holidays.each do |holiday, supplies|
-     puts "  #{holiday.capitalize}: #{supplies.join(", ")}"
- end
-end
-end
+     #binding.pry
+   puts "#{holiday.to_s.split("_").collect{ |holiday| holiday.capitalize.join(" ")}: #{supplies.join(", ") }"
+    end
+   end
+  end
+
 
 def all_holidays_with_bbq(holiday_hash)
   holidays.find_all do |supply| 
