@@ -76,7 +76,7 @@ def all_supplies_in_holidays(holiday_hash)
       holiday_name = holiday.to_s.split('_').map(&:capitalize).join(' ')
       supply_list = supplies.map { |i| i.to_s }.join(', ')
 
-      puts <<-HOLIDAY_LIST.gsub(/\n/, "").gsub(/^ {6}/, '')
+      puts <<-HOLIDAY_LIST.gsub(/^ {6}/, '').gsub(/\n/, "")
         #{holiday_name}: #{supply_list}
       HOLIDAY_LIST
 
