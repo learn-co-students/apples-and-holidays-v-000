@@ -76,27 +76,13 @@ def all_supplies_in_holidays(holiday_hash)
       holiday_name = holiday.to_s.split('_').map(&:capitalize).join(' ')
       supply_list = supplies.map { |i| i.to_s }.join(', ')
 
-      puts <<-HOLIDAY_LIST.gsub(/\n/, "")
-  #{holiday_name}: #{supply_list}
+      puts <<-HOLIDAY_LIST.gsub(/\n/, "").gsub(/^ {6}/, '')
+        #{holiday_name}: #{supply_list}
       HOLIDAY_LIST
 
     end
   end
 end
-# ^^In order to have the correct output, the code couldn't be indented as I would have liked. The below worked, but returned \n at the end of every line so the test failed:
-# holiday_hash.each do |season, holiday, supplies|
-#   puts "#{season.capitalize}:"
-#
-#     holiday.each do |holiday, supplies|
-#       holiday_name = holiday.to_s.split('_').map(&:capitalize).join(' ')
-#       supply_list = supplies.map { |i| i.to_s }.join(", ")
-#
-#       puts <<-HOLIDAY_LIST.gsub(/^ {6}/, '')
-#         #{holiday_name}: #{supply_list}
-#       HOLIDAY_LIST
-#     end
-#   end
-# end
 
 def all_holidays_with_bbq(holiday_hash)
   # return an array of holiday names (as symbols) where supply lists
