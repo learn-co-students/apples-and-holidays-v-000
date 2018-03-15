@@ -93,6 +93,6 @@ def all_holidays_with_bbq(holiday_hash)
     holiday.map do |name, item_arr|
       name if item_arr.include?("BBQ")
     end
-  end
-  result
+  end.flatten
+
 end
