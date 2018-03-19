@@ -1,0 +1,27 @@
+
+[1mFrom:[0m /home/eleemw/apples-and-holidays-v-000/lib/holiday.rb @ line 79 Object#all_supplies_in_holidays:
+
+    [1;34m68[0m: [32mdef[0m [1;34mall_supplies_in_holidays[0m(holiday_hash)
+    [1;34m69[0m:   [1;34m# iterate through holiday_hash and print items such that your readout resembles:[0m
+    [1;34m70[0m:   [1;34m# Winter:[0m
+    [1;34m71[0m:   [1;34m#   Christmas: Lights, Wreath[0m
+    [1;34m72[0m:   [1;34m#   New Years: Party Hats[0m
+    [1;34m73[0m:   [1;34m# Summer:[0m
+    [1;34m74[0m:   [1;34m#   Fourth Of July: Fireworks, BBQ[0m
+    [1;34m75[0m:   [1;34m# etc.[0m
+    [1;34m76[0m: 
+    [1;34m77[0m:   holiday_hash.each [32mdo[0m |seasons, season_holiday_hash|
+    [1;34m78[0m:     puts seasons.to_s.capitalize + [31m[1;31m"[0m[31m:[1;31m"[0m[31m[0m
+ => [1;34m79[0m:     binding.pry
+    [1;34m80[0m:     [1;34m#season_holiday_hash.collect do |holiday, holiday_supply_hash|[0m
+    [1;34m81[0m:       [1;34m#holiday.to_s[0m
+    [1;34m82[0m: 
+    [1;34m83[0m:       [1;34m#if holiday_supply_hash.count == 1[0m
+    [1;34m84[0m:       [1;34m#  puts "  #{holiday.capitalize}: " + holiday_supply_hash.join[0m
+    [1;34m85[0m:       [1;34m#else[0m
+    [1;34m86[0m:       [1;34m#  puts "  #{holiday.capitalize}: " + holiday_supply_hash.join(", ")[0m
+    [1;34m87[0m:       [1;34m#end[0m
+    [1;34m88[0m: 
+    [1;34m89[0m:   [32mend[0m
+    [1;34m90[0m: [32mend[0m
+
