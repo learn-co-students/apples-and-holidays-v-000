@@ -42,28 +42,40 @@ end
 def add_supply_to_memorial_day(holiday_hash, supply)
   # again, holiday_hash is the same as the ones above
   # add the second argument to the memorial day array
-  holiday_hash.each do |season , event|
-    if season == :spring
-      event.each do |holiday, supplies|
+  holiday_hash[:spring].each do |holiday, supplies|
         supplies << supply
-  end
-end
 end
 end
 
 
 def add_new_holiday_with_supplies(holiday_hash, season, holiday_name, supply_array)
-  # code here
-  # remember to return the updated hash
+holiday_hash[season][holiday_name] = supply_array
+
+#holiday_hash[season]= {
+#  holiday_name => supply_array
+#}
+
 
 end
 
 def all_winter_holiday_supplies(holiday_hash)
-  # return an array of all of the supplies that are used in the winter season
-
+  holiday_hash[:winter].collect do |holiday, supplies|
+      supplies
+    end.flatten
 end
 
+
 def all_supplies_in_holidays(holiday_hash)
+  holiday_hash.each do |season, event|
+puts season.to_s.capitalize + ":"
+event.each do |holiday, supplies|
+cap_holiday = holiday.to_s.split("_").each do |name|
+  name.capitalize!
+    end.join(' ')
+    puts '  ' + cap_holiday + ": " + supplies.join(', ')
+    end
+  end
+
   # iterate through holiday_hash and print items such that your readout resembles:
   # Winter:
   #   Christmas: Lights, Wreath
