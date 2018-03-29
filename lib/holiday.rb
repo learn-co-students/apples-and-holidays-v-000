@@ -24,25 +24,12 @@ def all_winter_holiday_supplies(holiday_hash)
 end
 
 def all_supplies_in_holidays(holiday_hash)
-  h_str = ""
-  h_pr = ""
-  s = ""
-  i = []
-  holiday = {}
-  holiday_hash.each do |season,hol_array| 
-    s = season.to_s
-    s.capitalize!
-    holiday = hol_array
-    puts "#{s}:"
-    holiday.each do |attribute, value|
-      h_str = attribute.to_s  #----turn attribute to string
-        h_ary = h_str.split("_")     #----.split the string to array
-          h_ary.each do |z| z.capitalize! end  #----iterate over ary & capitalize
-            h_pr = h_ary.join(" ") #----.join the ary back into a string
-              i = value.join(", ")
-        puts "  #{h_pr}: "+"#{i}"
-     end
-  end
+	holiday_hash.map do |season, holidays|
+		puts season.to_s.capitalize + ':'
+		holidays.map do |holiday, supplies|
+			puts"  #{holiday.to_s.split('_').map {|w| w.capitalize }.join(' ') }: #{supplies.join(", ")}"
+		end
+	end
 end
 
 def all_holidays_with_bbq(holiday_hash)
@@ -51,8 +38,8 @@ def all_holidays_with_bbq(holiday_hash)
     holidays.each do |name, values|
       if holidays[name].include?("BBQ"); 
         bbq_array << name
-          end
-        end
-      end
-    bbq_array 
-  end
+				end
+			end
+		end
+	bbq_array 
+end
