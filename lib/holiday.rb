@@ -50,38 +50,38 @@ def all_winter_holiday_supplies(holiday_hash)
 end
 
 def all_supplies_in_holidays(holiday_hash)
-
+  string = ""
   # Prints Seasons
   holiday_hash.each do |season, holiday|
     puts "#{season.capitalize}:"
-      # Prints Holidays
-      holiday.each do |key, value|
-        if key.to_s.include?("_")
-          new_array = key.to_s.split("_")
 
-          new_array.map! do |word|
-            word.capitalize
-          end
-          print "  #{new_array.join(" ")}: "
-        else
-          print "  #{key.to_s.capitalize}: "
+      # Prints Holidays
+    holiday.each do |key, value|
+      if key.to_s.include?("_")
+        new_array = key.to_s.split("_")
+
+        new_array.map! do |word|
+          word.capitalize
         end
-          # Prints Decorations
-        value.each do |decorations|
-          if value[value.length - 1] != decorations
-            print "#{decorations}, "
-          else
-            print "#{decorations}\n"
-          end
-        end
+        puts "  #{new_array.join(" ")}: #{value.join(", ")}"
+      else
+        puts "  #{key.to_s.capitalize}: #{value.join(", ")}"
       end
     end
   end
-
 end
 
 def all_holidays_with_bbq(holiday_hash)
   # return an array of holiday names (as symbols) where supply lists
   # include the string "BBQ"
+  bbq_array = []
 
+  holiday_hash.each do |season, holiday|
+    holiday.each do |key, value|
+      if value.include?("BBQ")
+        bbq_array << key
+      end
+    end
+  end
+  bbq_array
 end
