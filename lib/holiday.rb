@@ -57,16 +57,7 @@ def all_supplies_in_holidays(holiday_hash)
 
       # Prints Holidays
     holiday.each do |key, value|
-      if key.to_s.include?("_")
-        new_array = key.to_s.split("_")
-
-        new_array.map! do |word|
-          word.capitalize
-        end
-        puts "  #{new_array.join(" ")}: #{value.join(", ")}"
-      else
-        puts "  #{key.to_s.capitalize}: #{value.join(", ")}"
-      end
+      puts "  #{key.to_s.split("_").map { |holiday| holiday.capitalize}.join(" ") }: #{value.join(", ")}"
     end
   end
 end
