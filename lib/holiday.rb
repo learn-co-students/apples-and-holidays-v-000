@@ -28,10 +28,9 @@ def add_supply_to_winter_holidays(holiday_hash, supply)
   holiday_supplies[:winter]
   [:christmas]
   [:new_years]
-end
 
-def add_supply_to_fourth_of_july << BBQ
-end
+
+
   
 
 end
