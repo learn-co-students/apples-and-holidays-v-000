@@ -62,7 +62,7 @@ def holday_supplies fourth_of_july
 end
 
 def second_supply_for_fourth_of_july(holiday_supplies)
-  holiday_supplies[:summer][:fourth_of_july][1][:BBQ]
+  holiday_supplies[:summer][:fourth_of_july][1][:"BBQ"]
 end
 
 def all_holidays_with_bbq(holiday_hash)
