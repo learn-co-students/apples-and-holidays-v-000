@@ -25,18 +25,18 @@ def add_supply_to_winter_holidays(holiday_hash, supply)
   # add the second argument, which is a supply, to BOTH the
   # Christmas AND the New Year's arrays
   
-  holiday_supplies[:winter]
-  [:christmas]
-  [:new_years]
+  #holiday_supplies[:winter]
+  #[:christmas]
+  #[:new_years]
 
 end
 
 
-def add_supply_to_memorial_day(holiday_hash, supply)
+# def add_supply_to_memorial_day(holiday_hash, supply)
   # again, holiday_hash is the same as the ones above
   # add the second argument to the memorial day array
 
-end
+#end
 
 def add_new_holiday_with_supplies(holiday_hash, season, holiday_name, supply_array)
   # code here
@@ -55,18 +55,15 @@ def all_supplies_in_holidays(holiday_hash)
   #   Christmas: Lights, Wreath
   #   New Years: Party Hats
   # Summer:
+end
   
 def holday_supplies fourth_of_july
    [:Fireworks]
    [:"BBQ"]
 end
 
-def second_supply_for_fourth_of_july(holiday_supplies)
-    holiday_supplies[:summer]
-    [fourth_of_july]
-    [1]
-    ["BBQ"]
-  end
+def second_supply_for_fourth_of_july(holiday_supplies) 
+    holiday_supplies[:summer][:fourth_of_july][1]
 end
 
 def all_holidays_with_bbq(holiday_hash)
