@@ -73,7 +73,7 @@ end
 
 def holiday_spec
   [:winter][:christmas] << "Ballons"
-  [:winter][new_years] << "Balloons"
+  [:winter][:new_years] << "Balloons"
 end
 
 
