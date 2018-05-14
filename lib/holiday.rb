@@ -72,7 +72,8 @@ def all_holidays_with_bbq(holiday_hash)
 end
 
 def holiday_spec
-  [:winter]["Ballons"]
+  [:winter][:christmas] << "Ballons"
+  [:winter][new_years] << "Balloons"
 end
 
 
