@@ -25,6 +25,12 @@ def add_supply_to_winter_holidays(holiday_hash, supply)
    #binding.pry
    supplies<<supply
 end
+
+def add_supply_to_summer_holiday(holiday_hash, supply)
+  holiday_hash[:memorial_day].each do |holiday, supplies|
+   #binding.pry
+   supplies<<suppy
+end
 end
 
 
@@ -53,10 +59,9 @@ end
   
 def holday_supplies fourth_of_july
    [:Fireworks]
-   [:"BBQ"]
 end
 
-def second_supply_for_fourth_of_july(holiday_supplies) 
+def second_supply_for_fourth_of_july(holiday_supplies)
     holiday_supplies[:summer][:fourth_of_july][1]
 end
 
@@ -80,4 +85,4 @@ end
 
 
 
-
+end
