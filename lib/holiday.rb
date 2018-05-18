@@ -20,31 +20,40 @@ require 'pry'
   # return the second element in the 4th of July array
 # end
 
+
+def add_new_holiday_with_supplies(holiday_hash, season, holiday, stuff)
+ #binding.pry
+ holiday_hash[season][holiday] = stuff
+end
+
 def add_supply_to_winter_holidays(holiday_hash, supply)
   holiday_hash[:winter].each do |holiday, supplies|
-   #binding.pry
-   supplies<<supply
+   supplies << supply
 end
 end
 
 def add_supply_to_summer_holidays(holiday_hash, supply)
   holiday_hash[:summer][:memorial_day].each do |holiday, supplies|
    #binding.pry
-   supplies<<supply
+   supplies << supply
 end
 end
 
 
 def add_supply_to_memorial_day(holiday_hash, supply)
-   holiday_hash[:spring][:memorial_day]<<supply
+   holiday_hash[:spring][:memorial_day] << supply
 end
+
+# def add_supply_to_memorial_day(holiday_hash, supply)
+  # again, holiday_hash is the same as the ones above
+  # add the second argument to the memorial day array
+# end
 
 # def add_new_holiday_with_supplies(holiday_hash, season, holiday_name, supply_array)
   # code here
   # remember to return the updated hash
   # holiday_supplies(holiday_hash)
   # return an array of all of the supplies that are used in the winter season
-
 # end
 
 def all_supplies_in_holidays(holiday_hash)
@@ -64,15 +73,17 @@ def second_supply_for_fourth_of_july(holiday_supplies)
 end
 
 def add_supply_to_summer_holidays(holiday_hash, supply)
-  holiday_hash[:er].each do |holiday, supplies|
+  holiday_hash[:summer].each do |holiday, supplies|
    #binding.pry
-   supplies<<supply
+   supplies << supply
 end
 
 def all_holidays_with_bbq(summer)
   # return an array of holiday names (as symbols) where supply lists
   # include the string "BBQ"
 end
+
+
 
 end
 
