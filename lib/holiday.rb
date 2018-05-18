@@ -101,7 +101,7 @@ def all_supplies_in_holidays(holiday_hash)
   end
  end
  
- def all_holidays_with_bbq
+def all_holidays_with_bbq
   
 end
 
@@ -116,4 +116,4 @@ end
 
 
 
-
+end
