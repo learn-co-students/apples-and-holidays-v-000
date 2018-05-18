@@ -95,16 +95,25 @@ def all_supplies_in_holidays(holiday_hash)
         split_words << word.capitalize
       end
       capitalized=split_words.join(" ")
-   # binding.pry
+  #binding.pry
     puts "  #{capitalized}: #{supplies.join(", ")}"
-    #binding.pry
+  #binding.pry
   end
  end
  
-def all_holidays_with_bbq
-  
+def all_holidays_with_bbq(grimy)
+ nerds=[]
+  grimy.each do |season, holidays|
+    holidays.each do |holiday, supplies|
+  if supplies.include?("BBQ")
+    nerds << holiday
+  end    
 end
+end
+return nerds
 
+
+end
 
 
 
