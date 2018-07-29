@@ -81,7 +81,7 @@ describe "holiday_supplies_hash" do
 
   # Question 5
   # Write a method to collect all Winter supplies from all the winter holidays
-  describe "#all_winter_holiday_supplies" do
+  describe "#all_winter_holiday_supplies:" do
     it "has all the winter supplies" do
       ["Lights", "Wreath", "Party Hats"].each do |supply|
         expect(all_winter_holiday_supplies(holiday_supplies)).to include(supply)
