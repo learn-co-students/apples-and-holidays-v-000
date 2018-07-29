@@ -25,8 +25,10 @@ def second_supply_for_fourth_of_july(holiday_hash)
 end
 
 def add_supply_to_winter_holidays(holiday_hash, supply)
-  holiday_supplies[:winter][:christmas] = supply
-  holiday_supplies[:winter][:new_years] = supply
+
+ holiday_supplies[:winter][:christmas] = supply
+ holiday_supplies[:winter][:new_years] = supply
+
 end
 
 
@@ -43,7 +45,7 @@ def all_winter_holiday_supplies(holiday_hash)
   holiday_supplies[:winter].each do |holiday, supply|
     arr << supply
     end
-    return arr
+    return arr.flatten
 end
 
 
@@ -60,9 +62,15 @@ def all_supplies_in_holidays(holiday_hash)
 end
 
 def all_holidays_with_bbq(holiday_hash)
- 
+ supply = []
+ holiday_supplies.each do |holiday|
+   holiday.include?("BBQ")
+     supply << holiday
 
-end
+   end
+  return supply   
+  end
+
 
 
 
