@@ -68,7 +68,7 @@ bbq_days = []
     if supplies.include?("BBQ")
       bbq_days << holiday
     end
-    end
+  end
   end
 return bbq_days  
 end
