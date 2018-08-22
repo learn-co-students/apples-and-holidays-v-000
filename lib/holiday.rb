@@ -86,6 +86,9 @@ def all_supplies_in_holidays(holiday_hash)
     season = convert_symbol_to_capitalized_string(season)
     puts "#{season}:"
     
+    # Instead of the above, as shown in the official solution, I can just write:
+    # puts season.capitalize
+    
     holidays.each do |holiday, supplies|
       holiday = convert_symbol_to_capitalized_string(holiday)
       puts "  #{holiday}: " + supplies.join(", ")
