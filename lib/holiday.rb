@@ -40,6 +40,12 @@ def add_supply_to_memorial_day(holiday_hash, supply)
   
   holiday_hash[:spring][:memorial_day] << supply
   #binding.pry
+  
+  # To make this more dynamic, this works as well
+  # (though it would require the method to be called #add_supply_to_spring_holidays):
+  #holiday_hash[:spring].each do |holiday, supplies|
+    #supplies << supply 
+  #end
 end
 
 def add_new_holiday_with_supplies(holiday_hash, season, holiday_name, supply_array)
@@ -97,24 +103,28 @@ def all_holidays_with_bbq(holiday_hash)
   # return an array of holiday names (as symbols) where supply lists
   # include the string "BBQ"
   
-  bbq_holidays = []
-  
-  holiday_hash.each do |season, holidays|
-    holidays.each do |holiday, supplies|
-      if supplies.include?("BBQ")
+  # Solution 1:
+  #bbq_holidays = []
+  #holiday_hash.each do |season, holidays|
+    #holidays.each do |holiday, supplies|
+      #if supplies.include?("BBQ")
         #binding.pry
-        bbq_holidays << holiday
-      end
-    end
-  end
+        #bbq_holidays << holiday
+      #end
+    #end
+  #end
   #binding.pry
+  #bbq_holidays
   
-  bbq_holidays
+  # Solution 2, from the "Procedural Ruby Discussion, Part 2":
+  holiday_hash.collect do |season, celeb_hash|
+    celeb_hash.collect do |holiday_celebration, supply_array|
+      supply_array.collect do |supply|
+        if supply == "BBQ"
+          holiday_celebration
+        end 
+      end 
+    end 
+  end.flatten.compact
+  
 end
-
-
-
-
-
-
-
