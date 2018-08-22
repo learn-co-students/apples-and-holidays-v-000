@@ -128,3 +128,27 @@ def all_holidays_with_bbq(holiday_hash)
   end.flatten.compact
   
 end
+
+# Note: What follows are extra methods not required for this assignment.
+# In the "Procedural Ruby Discussion, Part 2", we learned how to combine the functionalities of #add_supply_to_memorial_day and #add_supply_to_winter_holidays into one method:
+
+def add_supply_to_holidays(holiday_hash, supply)
+  holiday_hash.each do |season, holidays|
+    holidays.each do |holiday, supplies| 
+      supplies << supply 
+    end 
+  end 
+end
+
+# However, that only adds the supply to EVERY holiday! 
+# To add a supply to a SPECIFIC holiday and/or add a new holiday and/or season, do this:
+
+def add_supply_to_holiday(holiday_hash, season, holiday, supply)
+  holiday_hash[season][holiday] << supply
+end
+
+# Finally, to add a new season to the holiday_hash:
+
+def add_new_season_with_holidays_and_supplies(holiday_hash, season, holidays)
+  holiday_hash[season] = holidays 
+end
