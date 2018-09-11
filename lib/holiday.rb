@@ -41,14 +41,8 @@ end
 # add the second argument to the memorial day array
 
 def add_supply_to_memorial_day(holiday_hash, supply)
-#binding.pry
   holiday_hash[:spring][:memorial_day] << supply
-
 end
-
-
-
-#binding.pry
 
 
 def add_new_holiday_with_supplies(holiday_hash, season, holiday_name, supply_array)
@@ -68,7 +62,7 @@ def all_supplies_in_holidays(holiday_hash)
   holiday_hash.each do |season, holiday|
     puts "#{season.to_s.capitalize!}:"
     holiday.each do |holiday, supplies|
-        puts "  #{holiday.to_s.capitalize!}: #{supplies.join(", ")}"
+        puts "  #{holiday.to_s.split("_").map(&:capitalize!).join(' ')}: #{supplies.join(", ")}"
     end
   end
 end
