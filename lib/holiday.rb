@@ -1,5 +1,3 @@
-require 'pry'
-
   # holiday_hash =
   # {
   #   :winter => {
