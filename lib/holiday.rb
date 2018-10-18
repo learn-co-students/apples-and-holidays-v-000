@@ -63,9 +63,7 @@ def all_winter_holiday_supplies(holiday_hash)
   # Summer:
   #   Fourth Of July: Fireworks, BBQ
   # etc.
-  #  binding.pry
 holiday_hash.each do |season_key, season_value|
-  #  binding.pry
   puts "#{season_key.capitalize}:"
 holiday_hash[season_key].each do |holiday, data|
     holiday_name=holiday.to_s
@@ -73,10 +71,8 @@ holiday_hash[season_key].each do |holiday, data|
     holiday_name_array.each {|holiday_word| holiday_word.capitalize!}
    holiday_name="  "+holiday_name_array.join(" ")
    itemlist=""
-   # binding.pry
    data.each do |itemvalue|
      itemlist += itemvalue + ", "
-   #  binding.pry
    end
     puts "#{holiday_name}: #{itemlist.chomp(", ")}"
     end
@@ -90,10 +86,8 @@ def all_holidays_with_bbq(holiday_hash)
   bbq_holidays=[]
 holiday_hash.each do |season_key,season_value|
   holiday_hash[season_key].each do |holiday_key, holiday_value|
- # binding.pry
   if holiday_value.include?("BBQ")
     bbq_holidays << holiday_key
- # binding.pry
    end
  end
  end
