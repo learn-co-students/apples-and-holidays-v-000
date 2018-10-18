@@ -55,9 +55,7 @@ def all_winter_holiday_supplies(holiday_hash)
   # winter_supplies
   end
   
-  
-
-def all_supplies_in_holidays(holiday_hash)
+  def all_supplies_in_holidays(holiday_hash)
   # iterate through holiday_hash and print items such that your readout resembles:
   # Winter:
   #   Christmas: Lights, Wreath
@@ -70,16 +68,17 @@ holiday_hash.each do |season_key, season_value|
   #  binding.pry
   puts "#{season_key.capitalize}:"
 holiday_hash[season_key].each do |holiday, data|
-  #  binding.pry
     holiday_name=holiday.to_s
     holiday_name_array=holiday_name.split('_')
-   # binding.pry
     holiday_name_array.each {|holiday_word| holiday_word.capitalize!}
-    # binding.pry
-     holiday_name=holiday_name_array.join(" ")
+   holiday_name="  "+holiday_name_array.join(" ")
+   itemlist=""
    # binding.pry
-   itemlist=data.to_s
-    puts "#{holiday_name}: #{itemlist}"
+   data.each do |itemvalue|
+     itemlist += itemvalue + ", "
+   #  binding.pry
+   end
+    puts "#{holiday_name}: #{itemlist.chomp(", ")}"
     end
   end
 end
@@ -88,7 +87,17 @@ end
 def all_holidays_with_bbq(holiday_hash)
   # return an array of holiday names (as symbols) where supply lists
   # include the string "BBQ"
-
+  bbq_holidays=[]
+holiday_hash.each do |season_key,season_value|
+  holiday_hash[season_key].each do |holiday_key, holiday_value|
+ # binding.pry
+  if holiday_value.include?("BBQ")
+    bbq_holidays << holiday_key
+ # binding.pry
+   end
+ end
+ end
+ bbq_holidays
 end
 
 
