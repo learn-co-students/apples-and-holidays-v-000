@@ -1,3 +1,4 @@
+
 require 'pry'
 
 holiday_supplies = {
@@ -34,8 +35,12 @@ def add_new_holiday_with_supplies(holiday_supplies, season, holiday, supply)
   holiday_supplies[season][holiday] = supply
 end
 
+
 def all_winter_holiday_supplies(holiday_supplies)
-  holiday_supplies[:winter].values.flatten
+  holiday_supplies[:winter].values.flatten 
+  #holiday_supplies[:winter].collect do |holidays, supplies|
+  #    supplies
+  #end.flatten
 end
 
 def all_supplies_in_holidays(holiday_supplies)
