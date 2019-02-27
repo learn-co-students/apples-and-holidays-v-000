@@ -13,9 +13,7 @@ end
 
 
 def add_supply_to_new_years(holiday_hash, supply)
-  holiday_hash[:winter].each do |holiday, supply|
-    supplies << extra_supply
-  end
+  holiday_hash[:winter][:new_years] << supply
 end
 
 
