@@ -60,13 +60,9 @@ end
 def add_new_holiday_with_supplies(holiday_hash, season, holiday_name, supply_array)
   # code here
   # remember to return the updated hash
-  holiday_hash.each do |season, holiday_details_hash|
-    if season == :fall
-      holiday_hash.update(holiday_name)
-    end
-  end
-  holiday_hash
-
+  holiday_hash.update(season => {
+    holiday_name => supply_array
+    })
 end
 =begin
 programmer_hash.update(:yukihiro_matsumoto => {
@@ -77,7 +73,7 @@ programmer_hash.update(:yukihiro_matsumoto => {
 
 def all_winter_holiday_supplies(holiday_hash)
   # return an array of all of the supplies that are used in the winter season
-
+  holiday_hash[:winter].values.flatten
 end
 
 def all_supplies_in_holidays(holiday_hash)
