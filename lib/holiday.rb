@@ -84,15 +84,17 @@ def all_supplies_in_holidays(holiday_hash)
   # Summer:
   #   Fourth Of July: Fireworks, BBQ
   # etc.
-  holiday_hash.map do |season, holiday_details_hash|
+  holiday_hash.each do |season, holiday_details_hash|
     puts "#{season}:".to_s.capitalize!
     holiday_details_hash.map do |attribute, data|
-       puts "  " + attribute.to_s.split(' ').map(&:capitalize!).join(' ') + ": " + data.join(', ')
+       puts "  " + attribute.to_s.split(' ').each { |element| element.capitalize!.join(' ')} + ": " + data.join(', ')
+       #example: enumerable.each { |element| result << block.call(element) }
        #example: string.split(' ').map(&:capitalize).join(' ')
        #"  " + attribute.to_s.capitalize! + ": " + data.join(', ')
       #season.to_s.capitalize! + ":"
       #holiday_details_hash.each do |attribute, data|
       #puts data.to_s.join()
+      #working on this version:  puts "  " + attribute.to_s.split(' ').each(&:capitalize!).join(' ') + ": " + data.join(', ')
     end
   end
 end
