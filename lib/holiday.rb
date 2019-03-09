@@ -106,6 +106,7 @@ def all_holidays_with_bbq(holiday_hash)
     if supply.include?("BBQ")
       puts season
     end
+    puts season
   end
 end
 #binding.pry
