@@ -107,7 +107,7 @@ def all_holidays_with_bbq(holiday_hash)
       data.map do |attribute, value|
         holiday = holiday_hash[season][attribute]
           holiday.include?("BBQ")
-          holiday_hash[season][attribute]
+          holiday_hash[season]
       end
 
     end
