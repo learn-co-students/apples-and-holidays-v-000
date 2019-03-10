@@ -105,10 +105,11 @@ def all_holidays_with_bbq(holiday_hash)
     holiday_hash.map do |season, data|
       data.map do |attribute, value|
           supply = holiday_hash[season][attribute]
-          if supply.include?("BBQ")
-            attribute
-          end
+          supply.find{ |holiday| holiday.include?("BBQ") }
+            #attribute
+          #end
       end
   end
 end
 #binding.pry
+#[1,2,3].find{|i| i.odd?}
