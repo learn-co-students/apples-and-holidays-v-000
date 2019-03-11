@@ -104,12 +104,24 @@ def all_holidays_with_bbq(holiday_hash)
   # include the string "BBQ"
     holiday_hash.map do |season, data|
       data.map do |attribute, value|
-          supply = holiday_hash[season][attribute]
-          supply.find{ |holiday| holiday.include?("BBQ") }
-            #attribute
-          #end
+        #attribute.delete_if {|val| val == false}
+        supply = holiday_hash[season][attribute]
+          if supply.include?("BBQ")
+
+            attribute
+
+          end
+        end
       end
-  end
 end
 #binding.pry
-#[1,2,3].find{|i| i.odd?}
+
+=begin
+contacts.each do |person, contact_details_hash|
+  contact_details_hash.each do |attribute, data|
+    if attribute == :favorite_ice_cream_flavors
+      data.delete_if {|ice_cream| ice_cream == "strawberry"}
+    end
+  end
+end
+=end
