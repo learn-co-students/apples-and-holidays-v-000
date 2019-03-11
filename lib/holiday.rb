@@ -106,13 +106,11 @@ def all_holidays_with_bbq(holiday_hash)
       data.map do |attribute, value|
         #attribute.delete_if {|val| val == false}
         supply = holiday_hash[season][attribute]
-          if supply.include?("BBQ")
-
-            attribute
-
-          end
+        if supply.include?("BBQ")
+          attribute
         end
       end
+    end.flatten
 end
 #binding.pry
 
