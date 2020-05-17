@@ -27,38 +27,21 @@ def add_supply_to_winter_holidays(holiday_hash, supply)
   # Christmas AND the New Year's arrays
   # holiday_hash[:winter][:christmas].push(supply)
   # holiday_hash[:winter][:new_years].push(supply)
-
-  holiday_hash.each do |season, supply_hash|
-    if season == :winter
-      supply_hash.each do |holiday, supply_array|
-        supply_array.push(supply)
-      end
-    end
-  end
+  holiday_hash[:winter][:christmas] << supply
+  holiday_hash[:winter][:new_years] << supply
 end
 
 
 def add_supply_to_memorial_day(holiday_hash, supply)
   # again, holiday_hash is the same as the ones above
   # add the second argument to the memorial day array
-  holiday_hash.each do |season, supply_hash|
-    if season == :spring
-      supply_hash.each do |holiday, supply_array|
-        supply_array.push(supply)
-      end
-    end
-  end
-
+  holiday_hash[:spring][:memorial_day] << supply
 end
 
 def add_new_holiday_with_supplies(holiday_hash, season, holiday_name, supply_array)
   # code here
   # remember to return the updated hash
-  holiday_hash.each do |ssn, supply_hash|
-    if ssn == season
-      holiday_hash[ssn] = {holiday_name => supply_array}
-    end
-  end
+  holiday_hash[season] = {holiday_name => supply_array}
 end
 
 def all_winter_holiday_supplies(holiday_hash)
@@ -74,24 +57,14 @@ def all_supplies_in_holidays(holiday_hash)
   # Summer:
   #   Fourth Of July: Fireworks, BBQ
   # etc.
-
-  holiday_hash.collect do |season, supply_hash|
+  holiday_hash.each do |season, holidays|
     puts "#{season.to_s.capitalize!}:"
-    supply_hash.collect do |holiday, supply|
-      if holiday == :new_years || holiday == :fourth_of_july || holiday == :memorial_day
-        hol_letter_array = holiday.to_s.split(//)
-        hol_letter_array.collect.with_index do |x, index|
-          if x == "_"
-            hol_letter_array[index] = " "
-          end
-        end
-        l2 = hol_letter_array.join("")
-        l3 = l2.split(/ /).collect {|word| word.capitalize!}
-        puts "  #{l3.join(" ")}: #{supply.join(", ")}"
-      elsif holiday == :christmas || holiday == :thanksgiving
-        puts "  #{holiday.to_s.capitalize!}: #{supply.join(", ")}"
+    holidays.each do |holiday, supplies_array|
+      if holiday.to_s.include?("_")
+        puts "  #{holiday.to_s.split(/_+/).each{|split_holiday| split_holiday.capitalize!}.join(" ")}: #{supplies_array.join(", ")}"
+      else
+        puts "  #{holiday.to_s.capitalize!}: #{supplies_array.join(", ")}"
       end
-
     end
   end
 end
@@ -101,13 +74,7 @@ end
 def all_holidays_with_bbq(holiday_hash)
   # return an array of holiday names (as symbols) where supply lists
   # include the string "BBQ"
-  array = []
-  holiday_hash.each do |season, supply_hash|
-    supply_hash.each do |holiday, supply|
-    if supply.include?("BBQ")
-      array << holiday
-    end
-    end
-  end
-  array
+  season_hashes_array = holiday_hash.select{|season, holidays| holidays.values.flatten.include?("BBQ")}.values
+  season_hashes_array.collect{|hash| hash.collect{|holiday, supplies_array| holiday}}.flatten
+
 end
