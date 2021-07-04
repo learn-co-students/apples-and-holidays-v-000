@@ -110,14 +110,14 @@ describe "holiday_supplies_hash" do
 
       @output = <<-TEXT
 Winter:
-  Christmas: Lights, Wreath
-  New Years: Party Hats
+Christmas: Lights, Wreath
+New Years: Party Hats
 Summer:
-  Fourth Of July: Fireworks, BBQ
+Fourth Of July: Fireworks, BBQ
 Fall:
-  Thanksgiving: Turkey
+Thanksgiving: Turkey
 Spring:
-  Memorial Day: BBQ
+Memorial Day: BBQ
 TEXT
     end
 
