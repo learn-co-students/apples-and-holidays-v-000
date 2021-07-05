@@ -1,0 +1,58 @@
+
+
+holiday_supplies = {
+  :winter => {
+    :christmas => ["Lights", "Wreath"],
+    :new_years => ["Party Hats"]
+  },
+  :summer => {
+    :fourth_of_july => ["Fireworks", "BBQ"]
+  },
+  :fall => {
+    :thanksgiving => ["Turkey"]
+  },
+  :spring => {
+    :memorial_day => ["BBQ"]
+  }
+}
+
+
+def all_supplies_in_holidays(holiday_supplies)
+
+  holiday_supplies.each do |season, holiday|
+    season_upcase = season.to_s.capitalize! + ": "
+    season_upcase
+    holidays_hash = holiday_supplies[season]
+
+    holidays_hash.each do |holiday, supplies|
+      holiday_strings = holiday.to_s + ": "
+      holiday_split = holiday_strings.split # arrays, same line (still have the "_")
+      puts holiday_split.join.split("_").join(" ") #all on same line but lowercase
+
+
+
+
+
+
+      #x = holiday_split.join.split # this puts them on separate lines
+        #x.each do |y|
+         # puts y.capitalize #capitalized but on separate lines
+        #end
+
+
+
+
+      #holidays_lowercase.each do |elements|
+        #holiday_cap = elements.capitalize!  #everything capped but on separate lines
+
+        #end
+
+
+    end
+
+  end
+
+end
+
+
+  

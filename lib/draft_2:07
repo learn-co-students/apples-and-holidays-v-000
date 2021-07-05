@@ -1,0 +1,23 @@
+def all_supplies_in_holidays(holiday_hash)
+  
+  final_upcase_list = []
+
+  holiday_hash.each do |seasons, holidays|
+    
+    final_upcase_list << seasons.to_s + ": "
+    holidays.each do |holiday, supplies|
+      holiday = holiday.to_s.split("_")
+      final_upcase_list << holiday.join(" ") + ": "
+    end
+    
+  end
+  
+  new = final_upcase_list.join(",")
+  next_new = new.split(",")
+    next_new.each do |word|
+      print word.capitalize.split(" ")
+    end
+end
+
+
+["Winter:"]["Christmas:"]["New", "years:"]["Summer:"]["Fourth", "of", "july:"]["Fall:"]["Thanksgiving:"]["Spring:"]["Memorial", "day:"]
