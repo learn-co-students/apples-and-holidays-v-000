@@ -11,7 +11,7 @@
 
 You have a bunch of decorations for various holidays organized by season.
 
-```ruby
+
 holiday_supplies = {
   :winter => {
     :christmas => ["Lights", "Wreath"],
@@ -27,17 +27,17 @@ holiday_supplies = {
     :memorial_day => ["BBQ"]
   }
 }
-```
 
-Write your methods in `lib/holiday.rb`; use the comments in each method as guides.
+
+<Write your methods in `lib/holiday.rb`; use the comments in each method as guides.-->
 
 * Write a method that returns the second supply for the Fourth of July. For eg:
 
-```ruby
+ruby
 def second_supply_for_fourth_of_july(holiday_supplies)
   holiday_supplies[:summer][:fourth_of_july][1]
 end
-```
+
 
 * Write a method that adds a supply to both Winter holidays.
 
@@ -47,9 +47,8 @@ end
 
 * Write a method to collect all Winter supplies from all the winter holidays. For eg:
 
-```bash
-winter_supplies(holiday_supplies) #=> ["Lights", "Wreath", etc]
-```
+
+#winter_supplies(holiday_supplies) #=> ["Lights", "Wreath", etc]
 
 * Write a method that uses a loop to list out all the supplies you have for each holiday and the season. Use string manipulation to get your output to match what the test is expecting.
 
