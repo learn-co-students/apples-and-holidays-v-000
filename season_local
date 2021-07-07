@@ -1,0 +1,28 @@
+
+[1mFrom:[0m /home/keith-94593/code/labs/apples-and-holidays-v-000/lib/holiday.rb @ line 82 Object#add_new_holiday_with_supplies:
+
+    [1;34m69[0m: [32mdef[0m [1;34madd_new_holiday_with_supplies[0m(holiday_hash, season, holiday_name, supply_array)
+    [1;34m70[0m:   [1;34m# code here[0m
+    [1;34m71[0m:   [1;34m# remember to return the updated hash[0m
+    [1;34m72[0m: 
+    [1;34m73[0m:   holiday_hash.each [32mdo[0m |season_local, holidays|
+    [1;34m74[0m:     holidays.each [32mdo[0m |holiday, supplies|
+    [1;34m75[0m: 
+    [1;34m76[0m:       [32mif[0m season_local == season
+    [1;34m77[0m: 
+    [1;34m78[0m:         holiday_hash[season_local][holiday] = supplies
+    [1;34m79[0m: 
+    [1;34m80[0m:       [32mend[0m
+    [1;34m81[0m: 
+ => [1;34m82[0m:       binding.pry
+    [1;34m83[0m:     [32mend[0m
+    [1;34m84[0m:   [32mend[0m
+    [1;34m85[0m: 
+    [1;34m86[0m:   [32mreturn[0m holiday_hash
+    [1;34m87[0m: 
+    [1;34m88[0m:   binding.pry
+    [1;34m89[0m: 
+    [1;34m90[0m:   [32mreturn[0m holiday_hash
+    [1;34m91[0m: 
+    [1;34m92[0m: [32mend[0m
+
