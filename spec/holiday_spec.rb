@@ -120,7 +120,7 @@ Spring:
   Memorial Day: BBQ
 TEXT
     end
-
+    #
     # For the purposes of this test, we are assuming that you decided to output your list
     # of holiday supplies line by line. If, on the other hand, you decided to output it
     # as one big chunk, comment out this test, and uncomment the one below it.
@@ -132,7 +132,7 @@ TEXT
 
       all_supplies_in_holidays(holiday_supplies)
     end
-
+    #
     # it "should output the formatted list of holidays and their supplies" do
     #   expect($stdout).to receive(:puts).with(@output)
     #   all_supplies_in_holidays(holiday_supplies)
