@@ -36,6 +36,7 @@ Write your methods in `lib/holiday.rb`; use the comments in each method as guide
 ```ruby
 def second_supply_for_fourth_of_july(holiday_supplies)
   holiday_supplies[:summer][:fourth_of_july][1]
+  return   holiday_supplies[:summer][:fourth_of_july][1]
 end
 ```
 
