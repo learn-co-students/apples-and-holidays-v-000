@@ -1,0 +1,31 @@
+
+[1mFrom:[0m /home/rollinmetzger-175473/code/apples-and-holidays-v-000/lib/holiday.rb @ line 39 Object#second_supply_for_fourth_of_july:
+
+    [1;34m17[0m: [32mdef[0m [1;34msecond_supply_for_fourth_of_july[0m(holiday_hash)
+    [1;34m18[0m:   [1;34m# given that holiday_hash looks like this:[0m
+    [1;34m19[0m:   [1;34m# {[0m
+    [1;34m20[0m:   [1;34m#   :winter => {[0m
+    [1;34m21[0m:   [1;34m#     :christmas => ["Lights", "Wreath"],[0m
+    [1;34m22[0m:   [1;34m#     :new_years => ["Party Hats"][0m
+    [1;34m23[0m:   [1;34m#   },[0m
+    [1;34m24[0m:   [1;34m#   :summer => {[0m
+    [1;34m25[0m:   [1;34m#     :fourth_of_july => ["Fireworks", "BBQ"][0m
+    [1;34m26[0m:   [1;34m#   },[0m
+    [1;34m27[0m:   [1;34m#   :fall => {[0m
+    [1;34m28[0m:   [1;34m#     :thanksgiving => ["Turkey"][0m
+    [1;34m29[0m:   [1;34m#   },[0m
+    [1;34m30[0m:   [1;34m#   :spring => {[0m
+    [1;34m31[0m:   [1;34m#     :memorial_day => ["BBQ"][0m
+    [1;34m32[0m:   [1;34m#   }[0m
+    [1;34m33[0m:   [1;34m# }[0m
+    [1;34m34[0m:   [1;34m# return the second element in the 4th of July array[0m
+    [1;34m35[0m:   holiday_hash.each [32mdo[0m |season, holidays_hash|
+    [1;34m36[0m:     [32mif[0m season == [33m:summer[0m
+    [1;34m37[0m:       holidays_hash.each [32mdo[0m |stuff|
+    [1;34m38[0m:         stuff[[1;34m1[0m]
+ => [1;34m39[0m:         binding.pry
+    [1;34m40[0m:       [32mend[0m
+    [1;34m41[0m:     [32mend[0m
+    [1;34m42[0m:   [32mend[0m
+    [1;34m43[0m: [32mend[0m
+
