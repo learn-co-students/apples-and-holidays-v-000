@@ -127,7 +127,7 @@ TEXT
 
     it "should output the formatted list of holidays and their supplies" do
       @output.each_line do |line|
-        expect($stdout).to receive(:puts).with(line.chomp)
+        expect($stdout).to receive(:puts).at_least(1).times.with(line.chomp)
       end
 
       all_supplies_in_holidays(holiday_supplies)
