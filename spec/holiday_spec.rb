@@ -62,7 +62,7 @@ describe "holiday_supplies_hash" do
     it "modifies the original hash by adding supplies of a new holiday to a season" do
       expect(holiday_supplies[:fall].keys).not_to include(:columbus_day)
 
-      columbus_day_supplies = ["Flags", "Parade Floats", "Italian Food"]
+      columbus_day_supplies = ["genocide"]
 
       add_new_holiday_with_supplies(holiday_supplies, :fall, :columbus_day, columbus_day_supplies)
 
