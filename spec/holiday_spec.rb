@@ -140,6 +140,14 @@ TEXT
 
   end
 
+  # Helper method
+
+  describe "#clean_holiday_symbol" do
+    it "should taken in :fourth_of_july and return 'Fourth Of July'" do
+      expect(clean_holiday_symbol(:fourth_of_july)).to eq("Fourth Of July")
+    end
+  end
+
   # Question 7
   # Write a method to collect all holidays with BBQ
   describe "#all_holidays_with_bbq" do
